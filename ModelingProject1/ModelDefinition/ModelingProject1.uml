@@ -96,14 +96,6 @@
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
-        Id="e715422d-89d1-4f00-bbf8-7dc13dbd6a86"
-        name="Class11"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
         Id="032844ac-f843-412f-83d9-927753d15cc4"
         name="registerViewModel"
         isAbstract="false"
