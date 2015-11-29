@@ -39,8 +39,8 @@ namespace BasteleiApp
         public LocationDataset(string jsonstr)
         {
             dynamic input = JsonConvert.DeserializeObject(jsonstr);
-            LocationName = input.locationname;
-            ProbeID = input.token;
+            this.LocationName = input.locationname;
+            this.ProbeID = input.token;
 
         }
     }

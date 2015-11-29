@@ -18,7 +18,7 @@
     
     <Grid>
         <Button Name="Registration" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
-                Click="Registration_Click">Register Probe</Button>
+                >Register Probe</Button>
         <WrapPanel Width="1080" Height="650"
                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"
                    >

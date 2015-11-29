@@ -39,9 +39,5 @@ namespace BasteleiApp
 
         }
 
-        private void Registration_Click(object sender, RoutedEventArgs e)
-        {
-            MainViewData l1 = new MainViewData(list1);
-        }
     }
 }

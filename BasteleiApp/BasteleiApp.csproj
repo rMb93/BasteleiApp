@@ -93,9 +93,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Country.cs" />
     <Compile Include="DataElement.cs" />
-    <Compile Include="JSONConvert.cs" />
     <Compile Include="LocationDataset.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
