@@ -1,7 +1,7 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 
-namespace UnitTestProject1...
+namespace UnitTestProject1
 {
     [Binding]
     public class VisualizeDataSteps
