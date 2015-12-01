@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasteleiApp", "BasteleiApp\BasteleiApp.csproj", "{6FDB13E9-8446-4886-8242-B74C65472460}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{3B7505FD-B5C3-4E12-BF4A-D17CC63C4F9A}"
-EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject1", "ModelingProject1\ModelingProject1.modelproj", "{C214E116-F5A2-4089-BB82-791D230B1653}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{6FDB13E9-8446-4886-8242-B74C65472460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FDB13E9-8446-4886-8242-B74C65472460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FDB13E9-8446-4886-8242-B74C65472460}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B7505FD-B5C3-4E12-BF4A-D17CC63C4F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B7505FD-B5C3-4E12-BF4A-D17CC63C4F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B7505FD-B5C3-4E12-BF4A-D17CC63C4F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B7505FD-B5C3-4E12-BF4A-D17CC63C4F9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C214E116-F5A2-4089-BB82-791D230B1653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C214E116-F5A2-4089-BB82-791D230B1653}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C214E116-F5A2-4089-BB82-791D230B1653}.Release|Any CPU.ActiveCfg = Release|Any CPU

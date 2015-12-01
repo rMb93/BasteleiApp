@@ -17,7 +17,7 @@
         <Button Name="loadloc" 
                 Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
                 Click="loadloc_Click">
-                Standorte laden
+                Refresh
         </Button>
         
         </WrapPanel>

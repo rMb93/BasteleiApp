@@ -53,8 +53,10 @@ namespace BasteleiApp
         {
             
             InitializeComponent();
-            
-            
+            LC1.Clear();
+            LC1.GetLocations();
+            loclist.ItemsSource = LC1;
+
 
 
 
