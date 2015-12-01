@@ -11,12 +11,7 @@
         Height="800" Width="1100" 
         WindowStartupLocation="CenterScreen"
         >
-    <!--
-    <Window.Resources>
-        <local:LocationCollection x:Key="LC1" />
-        <local:DataElementCollection x:Key="DEC1"/>
-    </Window.Resources>
-    -->
+    
     <Grid>
         <WrapPanel>
         <Button Name="loadloc" 
@@ -24,32 +19,37 @@
                 Click="loadloc_Click">
                 Standorte laden
         </Button>
-        <Button Name="loadList1" 
-                Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
-                Click="loadList1_Click">
-                Datensatz 1 laden
-        </Button>
-        <Button Name="loadList2" 
-                Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
-                Click="loadList2_Click">
-                Datensatz 2 laden
-        </Button>
+        
         </WrapPanel>
         <WrapPanel Width="1080" Height="650"
                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"
                    >
+            <StackPanel>
             <ListBox Name="loclist"
-                     Width="250" Height="620" 
+                     Width="250" Height="310" 
                      Margin="10"
+                     VerticalAlignment="Top"
                      SelectionChanged="loclist_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Path=LocationName}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-                        <!-- ItemsSource="{Binding Source={StaticResource LC1}, Path=LocationName}"> -->
+                        
 
             </ListBox>
+            <TextBlock Text="Zeitraum auswählen:"
+                       Margin ="10"/>
+                <ComboBox x:Name="comboBox" Width="120"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      Margin="10">
+                    <ComboBoxItem>3 Minuten</ComboBoxItem>
+                    <ComboBoxItem>1 Tag</ComboBoxItem>
+                    <ComboBoxItem>7 Tage</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
             <ListBox Name="ChartBox" 
                  Width="800" Height="620" 
                  HorizontalAlignment="Right"
@@ -90,10 +90,8 @@
 
             </ListBox>
             
+
         </WrapPanel>
     </Grid>
 </Window>
 
-<!--<ItemsSource="{Binding Source={StaticResource DEC1}}" 
-                        IndependentValueBinding = "{Binding Path = Timestamp}" 
-                        DependentValueBinding="{Binding Path = Temperature}"-->

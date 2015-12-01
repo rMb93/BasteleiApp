@@ -17,9 +17,11 @@ namespace BasteleiApp
             Add(new Location("asfpjaspodjpasodsda", "Stefan"));
 
         }
-        public void LoadLocationData(string[] jsonlist)
-        {
+        
 
+        public void LoadLocationData(string locname, DataElementCollection DEC)
+        {
+            
         }
     }
 }
