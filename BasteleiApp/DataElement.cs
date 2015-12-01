@@ -9,15 +9,29 @@ using System.ComponentModel;
 
 namespace BasteleiApp
 {
-    public class DataElement
+    public class DataElement //:INotifyPropertyChanged
     {
+        /*public event PropertyChangedEventHandler PropertyChanged;
 
-       
+        protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, e);
+        }
+
        public float Temperature
+        {
+            get { return Temperature; }
+            set { Temperature = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("Temperature"));
+            }
+        }*/
+        public float Temperature
         {
             get;
             set;
         }
+        
        public float Airpressure
         {
             get;

@@ -11,24 +11,43 @@
         Height="800" Width="1100" 
         WindowStartupLocation="CenterScreen"
         >
+    <!--
     <Window.Resources>
-        <local:MainViewModel x:Key="MainViewModel"/>
-        <local:MainViewData x:Key="MainViewData"/>
+        <local:LocationCollection x:Key="LC1" />
+        <local:DataElementCollection x:Key="DEC1"/>
     </Window.Resources>
-    
+    -->
     <Grid>
-        <Button Name="Registration" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
-                >Register Probe</Button>
+        <WrapPanel>
+        <Button Name="loadloc" 
+                Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
+                Click="loadloc_Click">
+                Standorte laden
+        </Button>
+        <Button Name="loadList1" 
+                Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
+                Click="loadList1_Click">
+                Datensatz 1 laden
+        </Button>
+        <Button Name="loadList2" 
+                Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"
+                Click="loadList2_Click">
+                Datensatz 2 laden
+        </Button>
+        </WrapPanel>
         <WrapPanel Width="1080" Height="650"
                    HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"
                    >
-            <ListBox Name="Location"
+            <ListBox Name="loclist"
                      Width="250" Height="620" 
                      Margin="10"
-                     ItemsSource="{DynamicResource MainViewModel}"
-                     DisplayMemberPath="LocationName"
-                     
-                     >
+                     SelectionChanged="loclist_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=LocationName}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                        <!-- ItemsSource="{Binding Source={StaticResource LC1}, Path=LocationName}"> -->
 
             </ListBox>
             <ListBox Name="ChartBox" 
@@ -40,34 +59,31 @@
                     Name="tmpChart" 
                     Title="Temperatur" 
 		            VerticalAlignment="Top" Width="600" Height="200">
-                    <chartingToolkit:LineSeries  
-                        
-		                ItemsSource="{DynamicResource MainViewData}" 
-                        IndependentValueBinding = "{Binding Path = Timestamp}" 
-                        DependentValueBinding="{Binding Path = Temperature}"
-		            IsSelectionEnabled="True"/>
+                    <chartingToolkit:LineSeries IsSelectionEnabled="True"
+                                                ItemsSource="{Binding}"
+                                                DataContext="{Binding}"
+                                                IndependentValueBinding = "{Binding Path = Timestamp}" 
+                                                DependentValueBinding="{Binding Path = Temperature}"/>
                 </chartingToolkit:Chart>
                 <chartingToolkit:Chart 
                     Name="humChart" 
                     Title="Luftfeuchtigkeit" 
 		            VerticalAlignment="Top" Width="600" Height="200">
-                    <chartingToolkit:LineSeries  
-                        
-		                ItemsSource="{DynamicResource MainViewData}" 
-                        IndependentValueBinding = "{Binding Path = Timestamp}" 
-                        DependentValueBinding="{Binding Path = Humidity}"
-		            IsSelectionEnabled="True"/>
+                    <chartingToolkit:LineSeries IsSelectionEnabled="True"
+                                                ItemsSource="{Binding}"
+                                                DataContext="{Binding}"
+                                                IndependentValueBinding = "{Binding Path = Timestamp}" 
+                                                DependentValueBinding="{Binding Path = Humidity}"/>
                 </chartingToolkit:Chart>
                 <chartingToolkit:Chart 
                     Name="pressureChart" 
-                    Title="Luftfeuchtigkeit" 
+                    Title="Luftdruck" 
 		            VerticalAlignment="Top" Width="600" Height="200">
-                    <chartingToolkit:LineSeries  
-                        
-		                ItemsSource="{DynamicResource MainViewData}" 
-                        IndependentValueBinding = "{Binding Path = Timestamp}" 
-                        DependentValueBinding="{Binding Path =Airpressure }"
-		            IsSelectionEnabled="True"/>
+                    <chartingToolkit:LineSeries IsSelectionEnabled="True"
+                                                ItemsSource="{Binding}"
+                                                DataContext="{Binding}"
+                                                IndependentValueBinding = "{Binding Path = Timestamp}" 
+                                                DependentValueBinding="{Binding Path = Airpressure}"/>
                 </chartingToolkit:Chart>
 
 
@@ -77,3 +93,7 @@
         </WrapPanel>
     </Grid>
 </Window>
+
+<!--<ItemsSource="{Binding Source={StaticResource DEC1}}" 
+                        IndependentValueBinding = "{Binding Path = Timestamp}" 
+                        DependentValueBinding="{Binding Path = Temperature}"-->

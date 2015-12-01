@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace BasteleiApp
 {
-    public class LocationDataset
+    public class Location
     {
         public string ProbeID
         {
@@ -20,28 +20,22 @@ namespace BasteleiApp
             get;
             set;
         }
-        public TimeSpan Timeframe
-        {
-            get;
-            set;
-        }
 
 
 
-        public LocationDataset(string ID, string locname, TimeSpan tf)
+        public Location(string ID, string locname)
 
         {
             ProbeID = ID;
             LocationName = locname;
-            Timeframe = tf;
             
         }
-        public LocationDataset(string jsonstr)
+        /*public Location(string jsonstr)
         {
             dynamic input = JsonConvert.DeserializeObject(jsonstr);
             this.LocationName = input.locationname;
             this.ProbeID = input.token;
 
-        }
+        }*/
     }
 }
