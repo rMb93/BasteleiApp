@@ -6,6 +6,7 @@
         xmlns:chartingToolkit=
 	    "clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         xmlns:local="clr-namespace:BasteleiApp"
+        xmlns:micro="using:Caliburn.Micro"
         mc:Ignorable="d"
         Title="{Binding WindowTitle}" 
         Height="800" Width="1100" 
@@ -45,42 +46,11 @@
                     <ComboBoxItem>7 Tage</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
-            <ListBox Name="ChartBox" 
+            <ListBox x:Name="Diagrams" 
                  Width="800" Height="620" 
                  HorizontalAlignment="Right"
                  Margin="0"
                  >
-                <chartingToolkit:Chart 
-                    Name="tmpChart" 
-                    Title="Temperatur" 
-		            VerticalAlignment="Top" Width="600" Height="200"
-                    >
-                    <chartingToolkit:LineSeries IsSelectionEnabled="True"
-                                                ItemsSource="{Binding}"
-                                                DataContext="{Binding}"
-                                                IndependentValueBinding = "{Binding Path = Timestamp}" 
-                                                DependentValueBinding="{Binding Path = Temperature}"/>
-                </chartingToolkit:Chart>
-                <chartingToolkit:Chart 
-                    Name="humChart" 
-                    Title="Luftfeuchtigkeit" 
-		            VerticalAlignment="Top" Width="600" Height="200">
-                    <chartingToolkit:LineSeries IsSelectionEnabled="True"
-                                                ItemsSource="{Binding}"
-                                                DataContext="{Binding}"
-                                                IndependentValueBinding = "{Binding Path = Timestamp}" 
-                                                DependentValueBinding="{Binding Path = Humidity}"/>
-                </chartingToolkit:Chart>
-                <chartingToolkit:Chart 
-                    Name="pressureChart" 
-                    Title="Luftdruck" 
-		            VerticalAlignment="Top" Width="600" Height="200">
-                    <chartingToolkit:LineSeries IsSelectionEnabled="True"
-                                                ItemsSource="{Binding}"
-                                                DataContext="{Binding}"
-                                                IndependentValueBinding = "{Binding Path = Timestamp}" 
-                                                DependentValueBinding="{Binding Path = Airpressure}"/>
-                </chartingToolkit:Chart>
             </ListBox>
         </WrapPanel>
     </Grid>
