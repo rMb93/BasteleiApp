@@ -10,7 +10,7 @@ using TestStack.White.UIItems.WindowStripControls;
 using TestStack.White.UIItems.TabItems;
 using TestStack.White.UIItems.ListBoxItems;
 using TestStack.White.UIItems.WPFUIItems;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BasteleiApp.Step_definitions
 {

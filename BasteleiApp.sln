@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasteleiApp", "BasteleiApp\BasteleiApp.csproj", "{6FDB13E9-8446-4886-8242-B74C65472460}"
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject1", "ModelingProject1\ModelingProject1.modelproj", "{C214E116-F5A2-4089-BB82-791D230B1653}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasteleiApp.Specs", "BasteleiApp.Specs\BasteleiApp.Specs.csproj", "{CEF5C359-2690-4514-8B15-26F6B5B7D39F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C214E116-F5A2-4089-BB82-791D230B1653}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C214E116-F5A2-4089-BB82-791D230B1653}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C214E116-F5A2-4089-BB82-791D230B1653}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF5C359-2690-4514-8B15-26F6B5B7D39F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF5C359-2690-4514-8B15-26F6B5B7D39F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF5C359-2690-4514-8B15-26F6B5B7D39F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF5C359-2690-4514-8B15-26F6B5B7D39F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
