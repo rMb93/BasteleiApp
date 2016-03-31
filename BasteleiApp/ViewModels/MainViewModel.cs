@@ -14,10 +14,15 @@ namespace BasteleiApp.ViewModels {
     private const string WindowTitleDefault = "bastelei";
 
     private string _windowTitle = WindowTitleDefault;
+    private string _refreshBtnContent;
     private DiagramViewModel _tempDiagram;
     private DiagramViewModel _pressureDiagram;
     private DiagramViewModel _humDiagram;
-    private List<DiagramViewModel> _diagrams;
+    private BindableCollection<DiagramViewModel> _diagrams;
+    private DiagramViewModel _selectedDiagram;
+    private LocationViewModel _dhLoc;
+    private LocationViewModel _wohnheimLoc;
+    private BindableCollection<LocationViewModel> _locations;
 
     #endregion //Fields
 
@@ -38,7 +43,7 @@ namespace BasteleiApp.ViewModels {
       get { return true; }
     }
 
-    internal DiagramViewModel TempDiagram
+    public DiagramViewModel TempDiagram
     {
       get
       {
@@ -52,7 +57,7 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
-    internal DiagramViewModel PressureDiagram
+    public DiagramViewModel PressureDiagram
     {
       get
       {
@@ -66,7 +71,7 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
-    internal DiagramViewModel HumDiagram
+    public DiagramViewModel HumDiagram
     {
       get
       {
@@ -80,7 +85,7 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
-    internal List<DiagramViewModel> Diagrams
+    public BindableCollection<DiagramViewModel> Diagrams
     {
       get
       {
@@ -94,18 +99,98 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
+    public LocationViewModel DhLoc
+    {
+      get
+      {
+        return _dhLoc;
+      }
+
+      set
+      {
+        _dhLoc = value;
+        NotifyOfPropertyChange(() => DhLoc);
+      }
+    }
+
+    public LocationViewModel WohnheimLoc
+    {
+      get
+      {
+        return _wohnheimLoc;
+      }
+
+      set
+      {
+        _wohnheimLoc = value;
+        NotifyOfPropertyChange(() => WohnheimLoc);
+      }
+    }
+
+    public BindableCollection<LocationViewModel> Locations
+    {
+      get
+      {
+        return _locations;
+      }
+
+      set
+      {
+        _locations = value;
+        NotifyOfPropertyChange(() => Locations);
+      }
+    }
+
+    public string RefreshBtnContent
+    {
+      get
+      {
+        return _refreshBtnContent;
+      }
+
+      set
+      {
+        _refreshBtnContent = value;
+        NotifyOfPropertyChange(() => RefreshBtnContent);
+      }
+    }    
+
+    public DiagramViewModel SelectedDiagram
+    {
+      get
+      {
+        return _selectedDiagram;
+      }
+
+      set
+      {
+        _selectedDiagram = value;
+        NotifyOfPropertyChange(() => SelectedDiagram);
+      }
+    }
+
     #endregion //Properties
 
     #region Constructors
 
     public MainViewModel() {
+      RefreshBtnContent = "Refresh";
+
       TempDiagram = new DiagramViewModel("Temperature", GetTestData());
       PressureDiagram = new DiagramViewModel("Pressure", GetTestData());
       HumDiagram = new DiagramViewModel("Humidity", GetTestData());
-      Diagrams = new List<DiagramViewModel>();
+
+      DhLoc = new LocationViewModel("DH");
+      WohnheimLoc = new LocationViewModel("Wohnheim");
+
+      Diagrams = new BindableCollection<DiagramViewModel>();
       Diagrams.Add(TempDiagram);
       Diagrams.Add(PressureDiagram);
       Diagrams.Add(HumDiagram);
+
+      Locations = new BindableCollection<LocationViewModel>();
+      Locations.Add(DhLoc);
+      Locations.Add(WohnheimLoc);
       
     }
 

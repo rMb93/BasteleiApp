@@ -6,52 +6,40 @@
         xmlns:chartingToolkit=
 	    "clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         xmlns:local="clr-namespace:BasteleiApp"
-        xmlns:micro="using:Caliburn.Micro"
+        xmlns:cal="http://www.caliburnproject.org"
         mc:Ignorable="d"
         Title="{Binding WindowTitle}" 
         Height="800" Width="1100" 
         WindowStartupLocation="CenterScreen"
         >
     <Grid>
-        <WrapPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".2*" />
+            <ColumnDefinition Width=".8*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".9*"/>
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0">
             <Button x:Name="LoadLocBtn" 
-                Content="Refresh"
+                Content="{Binding RefreshBtnContent}"
                 Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
             </Button>
         </WrapPanel>
-        <WrapPanel Width="1080" Height="650"
-                   HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"
-                   >
-            <StackPanel>
-                <ListBox Name="loclist"
-                     Width="250" Height="310" 
-                     Margin="10"
-                     VerticalAlignment="Top"
-                     >                    
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=LocationName}" />
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>                    
-                </ListBox>
-                <TextBlock Text="Zeitraum auswählen:"
-                       Margin ="10"/>
-                <ComboBox x:Name="comboBox" Width="120"
-                      HorizontalAlignment="Left"
-                      VerticalAlignment="Top"
-                      Margin="10"
-                      >
-                    <ComboBoxItem>3 Minuten</ComboBoxItem>
-                    <ComboBoxItem>1 Tag</ComboBoxItem>
-                    <ComboBoxItem>7 Tage</ComboBoxItem>
-                </ComboBox>
-            </StackPanel>
-            <ListBox x:Name="Diagrams" 
-                 Width="800" Height="620" 
-                 HorizontalAlignment="Right"
-                 Margin="0"
-                 >
-            </ListBox>
-        </WrapPanel>
+        <ListBox x:Name="Locations" ItemsSource="{Binding Locations}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl cal:View.Model="{Binding}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="Diagrams" ItemsSource="{Binding Diagrams}" SelectedItem="{Binding SelectedDiagram}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl cal:View.Model="{Binding}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
