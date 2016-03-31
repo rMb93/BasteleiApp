@@ -261,11 +261,15 @@ namespace BasteleiApp.ViewModels {
       TimeSpansName.Add("Month");
       TimeSpansName.Add("Day");
       TimeSpansName.Add("Hour");
+
+      WeatherDataModel model = new WeatherDataModel();
     }
 
     #endregion //Constructors
 
     #region Methods
+    
+    
 
     public void LoadLocBtn() {
       
