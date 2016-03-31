@@ -20,9 +20,13 @@ namespace BasteleiApp.ViewModels {
     private DiagramViewModel _humDiagram;
     private BindableCollection<DiagramViewModel> _diagrams;
     private DiagramViewModel _selectedDiagram;
+    private string _locationsLbl;
     private LocationViewModel _dhLoc;
     private LocationViewModel _wohnheimLoc;
     private BindableCollection<LocationViewModel> _locations;
+    private string _timeSpanLbl;
+    private BindableCollection<string> _timeSpansName;
+    private string _selectedTimeSpans;
 
     #endregion //Fields
 
@@ -169,6 +173,62 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
+    public BindableCollection<string> TimeSpansName
+    {
+      get
+      {
+        return _timeSpansName;
+      }
+
+      set
+      {
+        _timeSpansName = value;
+        NotifyOfPropertyChange(() => TimeSpansName);
+      }
+    }
+
+    public string SelectedTimeSpans
+    {
+      get
+      {
+        return _selectedTimeSpans;
+      }
+
+      set
+      {
+        _selectedTimeSpans = value;
+        NotifyOfPropertyChange(() => SelectedTimeSpans);
+      }
+    }
+
+    public string TimeSpanLbl
+    {
+      get
+      {
+        return _timeSpanLbl;
+      }
+
+      set
+      {
+        _timeSpanLbl = value;
+        NotifyOfPropertyChange(() => TimeSpanLbl);
+      }
+    }
+
+    public string LocationsLbl
+    {
+      get
+      {
+        return _locationsLbl;
+      }
+
+      set
+      {
+        _locationsLbl = value;
+        NotifyOfPropertyChange(() => LocationsLbl);
+      }
+    }
+
     #endregion //Properties
 
     #region Constructors
@@ -188,10 +248,19 @@ namespace BasteleiApp.ViewModels {
       Diagrams.Add(PressureDiagram);
       Diagrams.Add(HumDiagram);
 
+      LocationsLbl = "Locations:";
+
       Locations = new BindableCollection<LocationViewModel>();
       Locations.Add(DhLoc);
       Locations.Add(WohnheimLoc);
-      
+
+      TimeSpanLbl = "Timespan:";
+
+      TimeSpansName = new BindableCollection<string>();
+      TimeSpansName.Add("Year");
+      TimeSpansName.Add("Month");
+      TimeSpansName.Add("Day");
+      TimeSpansName.Add("Hour");
     }
 
     #endregion //Constructors
@@ -199,18 +268,18 @@ namespace BasteleiApp.ViewModels {
     #region Methods
 
     public void LoadLocBtn() {
-      WindowTitle = "blub";
+      
     }
 
     private List<KeyValuePair<DateTime, double>> GetTestData() {
       List<KeyValuePair<DateTime, double>> test = new List<KeyValuePair<DateTime, double>>();
-      test.Add(new KeyValuePair<DateTime, double>(DateTime.Now, 1.0));
-      test.Add(new KeyValuePair<DateTime, double>(DateTime.Now, 4.0));
-      test.Add(new KeyValuePair<DateTime, double>(DateTime.Now, 5.0));
-      test.Add(new KeyValuePair<DateTime, double>(DateTime.Now, 2.0));
-      test.Add(new KeyValuePair<DateTime, double>(DateTime.Now, 1.0));
-      test.Add(new KeyValuePair<DateTime, double>(DateTime.Now, 3.0));
-      test.Add(new KeyValuePair<DateTime, double>(DateTime.Now, 6.3));
+      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 02),1.0));
+      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 03), 4.0));
+      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 04), 5.0));
+      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 05), 2.0));
+      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 06), 1.0));
+      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 07), 3.0));
+      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 08), 6.3));
       return test;
     }
 

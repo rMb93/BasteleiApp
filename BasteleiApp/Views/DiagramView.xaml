@@ -7,15 +7,15 @@
              xmlns:chartingToolkit=
 	         "clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
              mc:Ignorable="d" >
-    <Grid Width="536" Height="223">
-        <chartingToolkit:Chart 
-                            Title="{Binding Title}" 
-                            >
-            <chartingToolkit:LineSeries IsSelectionEnabled="True"
-                                                DependentValuePath="Value" 
-                                                IndependentValuePath="Key"                                         
-                                                ItemsSource="{Binding WeatherData}"
-                                                />
-        </chartingToolkit:Chart>
+    <Grid Width="800" Height="300" HorizontalAlignment="Stretch">
+        <DockPanel HorizontalAlignment="Stretch">
+            <chartingToolkit:Chart Title="{Binding Title}">
+                <chartingToolkit:LineSeries IsSelectionEnabled="True"
+                                                    DependentValuePath="Value" 
+                                                    IndependentValuePath="Key"                                         
+                                                    ItemsSource="{Binding WeatherData}"
+                                                    />
+            </chartingToolkit:Chart>
+        </DockPanel>
     </Grid>
 </UserControl>

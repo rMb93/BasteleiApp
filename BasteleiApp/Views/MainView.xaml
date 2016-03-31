@@ -19,7 +19,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height=".1*"/>
-            <RowDefinition Height=".9*"/>
+            <RowDefinition Height=".6*"/>
+            <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
         <WrapPanel Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0">
             <Button x:Name="LoadLocBtn" 
@@ -27,19 +28,27 @@
                 Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
             </Button>
         </WrapPanel>
-        <ListBox x:Name="Locations" ItemsSource="{Binding Locations}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch">
+        <StackPanel Grid.Row="1">
+            <Label x:Name="LocationsLbl"/>
+            <ListBox x:Name="Locations" ItemsSource="{Binding Locations}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl cal:View.Model="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        
+        <ListBox x:Name="Diagrams" ItemsSource="{Binding Diagrams}" SelectedItem="{Binding SelectedDiagram}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <ContentControl cal:View.Model="{Binding}" />
+                    <ContentControl cal:View.Model="{Binding}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="Diagrams" ItemsSource="{Binding Diagrams}" SelectedItem="{Binding SelectedDiagram}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <ContentControl cal:View.Model="{Binding}" />
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <StackPanel Grid.Row="2">
+            <Label x:Name="TimeSpanLbl"/>
+            <ComboBox x:Name="TimeSpansName" SelectedIndex="0"/>
+        </StackPanel>
     </Grid>
 </Window>
