@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
-using BasteleiApp.ViewModels;
+using BasteleiApp.Models;
 
 namespace BasteleiApp.ViewModels {
   class MainViewModel : Screen {

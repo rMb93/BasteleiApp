@@ -3,38 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 using Newtonsoft.Json.Linq;
 
-namespace BasteleiApp {
+namespace BasteleiApp.Models {
   class WeatherDataModel {
 
     #region Fields
 
+    private List<ProbeData> _probes;
 
     #endregion //Fields
 
     #region Properties
-
 
     #endregion //Properties
 
     #region Constructors
 
     public WeatherDataModel() {
-      GetJsonData();
+      JObject jObject = GetJsonObject();
+      DeserializeJson(jObject);
     }
 
     #endregion //Constructors
 
     #region Methods
 
-    private void GetJsonData() {
-      string rawJson = ActionHelper.HttpRequest("http://api.bastelei-ws.de/getData.php");
-      var json = JObject.Parse(rawJson);
+    private JObject GetJsonObject() {
+      string rawJson = ActionHelper.HttpRequest("http://http://api.bastelei-ws.de/getData.php");
+      JObject jsonObject = JObject.Parse(rawJson);
+      return jsonObject;
+    }
+
+    private void DeserializeJson(JObject jObject) {
 
     }
 
     #endregion //Methods
+
   }
 }
