@@ -51,7 +51,7 @@
             </StackPanel>
 
             <ListBox Name="ChartBox" 
-                 Width="800" Height="620" 
+                 Width="640" Height="620" 
                  HorizontalAlignment="Right"
                  Margin="0"
                  >

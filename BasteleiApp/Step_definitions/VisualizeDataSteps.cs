@@ -39,6 +39,7 @@ namespace BasteleiApp.Step_definitions
         {
             ListBox locbox = window.Get<ListBox>("loclist");
             Assert.IsTrue(locbox.Visible);
+            System.Threading.Thread.Sleep(1000);
         }
         
         [Given(@"I see the timeframe selection menu")]
@@ -46,6 +47,7 @@ namespace BasteleiApp.Step_definitions
         {
             ComboBox combo = window.Get<ComboBox>("comboBox");
             Assert.IsTrue(combo.Visible);
+            System.Threading.Thread.Sleep(1000);
         }
         
         [Given(@"I have selected the location ""(.*)""")]
@@ -54,6 +56,7 @@ namespace BasteleiApp.Step_definitions
             ListBox locbox = window.Get<ListBox>("loclist");
 
             Assert.IsTrue(locbox.IsSelected(p0));
+            System.Threading.Thread.Sleep(1000);
         }
         
         [Given(@"I have selected the timeframe ""(.*)""")]
@@ -61,6 +64,7 @@ namespace BasteleiApp.Step_definitions
         {
             ComboBox combo = window.Get<ComboBox>("comboBox");
             Assert.AreEqual(p0, combo.SelectedItemText);
+            System.Threading.Thread.Sleep(1000);
         }
         
         [When(@"I select the timeframe ""(.*)""")]
@@ -69,6 +73,7 @@ namespace BasteleiApp.Step_definitions
             ComboBox combo = window.Get<ComboBox>("comboBox");
             combo.Select(p0);
             Assert.AreEqual(p0, combo.SelectedItemText);
+            System.Threading.Thread.Sleep(1000);
         }
         
         [When(@"I click on the location ""(.*)""")]
@@ -77,6 +82,7 @@ namespace BasteleiApp.Step_definitions
             ListBox locbox = window.Get<ListBox>("loclist");
             locbox.Select(p0);
             Assert.IsTrue(locbox.IsSelected(p0));
+            System.Threading.Thread.Sleep(1000);
         }
         
         
@@ -85,19 +91,20 @@ namespace BasteleiApp.Step_definitions
         {
             Button button = window.Get<Button>("loadloc");
             button.Click();
+            System.Threading.Thread.Sleep(1000);
         }
         
         
         [Then(@"the data of ""(.*)"" should be shown")]
         public void ThenTheDataOfShouldBeShown(string p0)
         {
-            ;
+            System.Threading.Thread.Sleep(1000);
         }
         
         [Then(@"the data of the last week is shown")]
         public void ThenTheDataOfTheLastWeekIsShown()
         {
-            ; 
+            System.Threading.Thread.Sleep(1000);
         }
     }
 }
