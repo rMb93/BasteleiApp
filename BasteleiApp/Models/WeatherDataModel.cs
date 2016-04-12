@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 
 namespace BasteleiApp.Models {
-  class WeatherDataModel {
+  class WeatherDataModel : BaseModel {
 
     #region Fields
 
@@ -21,23 +21,13 @@ namespace BasteleiApp.Models {
     #region Constructors
 
     public WeatherDataModel() {
-      JObject jObject = GetJsonObject();
-      DeserializeJson(jObject);
+      CreateDbConnection();
     }
 
     #endregion //Constructors
 
     #region Methods
-
-    private JObject GetJsonObject() {
-      string rawJson = ActionHelper.HttpRequest("http://http://api.bastelei-ws.de/getData.php");
-      JObject jsonObject = JObject.Parse(rawJson);
-      return jsonObject;
-    }
-
-    private void DeserializeJson(JObject jObject) {
-
-    }
+    
 
     #endregion //Methods
 

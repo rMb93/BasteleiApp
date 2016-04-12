@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using BasteleiApp.Models;
 
 namespace BasteleiApp.ViewModels {
   class DataPresentationViewModel : Screen {
@@ -249,7 +250,7 @@ namespace BasteleiApp.ViewModels {
       TimeSpansName.Add("Day");
       TimeSpansName.Add("Hour");
 
-      //WeatherDataModel model = new WeatherDataModel();
+      WeatherDataModel model = new WeatherDataModel();
     }
 
     #endregion //Constructors
