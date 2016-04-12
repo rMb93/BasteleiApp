@@ -106,8 +106,12 @@
     <Compile Include="DataMeasurement.cs" />
     <Compile Include="Models\WeatherDataModel.cs" />
     <Compile Include="ProbeData.cs" />
+    <Compile Include="ViewModels\DataPresentationViewModel.cs" />
     <Compile Include="ViewModels\DiagramViewModel.cs" />
     <Compile Include="ViewModels\LocationViewModel.cs" />
+    <Compile Include="Views\DataPresentationView.xaml.cs">
+      <DependentUpon>DataPresentationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DiagramView.xaml.cs">
       <DependentUpon>DiagramView.xaml</DependentUpon>
     </Compile>
@@ -156,6 +160,10 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\DataPresentationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DiagramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
