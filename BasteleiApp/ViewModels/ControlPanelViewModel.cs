@@ -4,30 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
-using BasteleiApp.Models;
 
 namespace BasteleiApp.ViewModels {
-  class MainViewModel : Screen {
+  class ControlPanelViewModel : Screen {
 
     #region Fields
     
-    private BindableCollection<object> _tabs;
+    private BindableCollection<object> _options;
 
     #endregion //Fields
 
     #region Properties
 
-    public BindableCollection<object> Tabs
+    public BindableCollection<object> Options
     {
       get
       {
-        return _tabs;
+        return _options;
       }
 
       set
       {
-        _tabs = value;
-        NotifyOfPropertyChange(() => Tabs);
+        _options = value;
       }
     }
 
@@ -35,10 +33,11 @@ namespace BasteleiApp.ViewModels {
 
     #region Constructors
 
-    public MainViewModel() {
-      Tabs = new BindableCollection<object>();
-      Tabs.Add(new DataPresentationViewModel());
-      Tabs.Add(new ControlPanelViewModel());
+    public ControlPanelViewModel() {
+      DisplayName = "Control Panel";
+
+      Options = new BindableCollection<object>();
+      Options.Add(new RegisterProbeViewModel());
     }
 
     #endregion //Constructors

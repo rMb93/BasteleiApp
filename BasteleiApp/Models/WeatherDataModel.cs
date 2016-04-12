@@ -10,7 +10,7 @@ namespace BasteleiApp.Models {
 
     #region Fields
 
-    private List<ProbeData> _probes;
+    private List<ProbeDataModel> _probes;
 
     #endregion //Fields
 

@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BasteleiApp {
-  class ProbeData {
+  class ProbeDataModel {
 
     #region Fields
 
     private string _token;
-    private List<DataMeasurement> _data;
+    private List<DataMeasurementModel> _data;
 
     #endregion //Fields
 
@@ -29,7 +29,7 @@ namespace BasteleiApp {
       }
     }
 
-    internal List<DataMeasurement> Data
+    public List<DataMeasurementModel> Data
     {
       get
       {
@@ -46,7 +46,7 @@ namespace BasteleiApp {
 
     #region Constructors
 
-    public ProbeData(string token) {
+    public ProbeDataModel(string token) {
       Token = token;
     }
 
@@ -55,7 +55,7 @@ namespace BasteleiApp {
     #region Methods
 
     public void AddDataMeasurement(DateTime time, double temp, double hum, double press, double alt) {
-      Data.Add( new DataMeasurement(time, temp, hum, press, alt));
+      Data.Add( new DataMeasurementModel(time, temp, hum, press, alt));
     }
 
     #endregion //Methods

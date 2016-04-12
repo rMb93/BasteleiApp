@@ -11,6 +11,6 @@
         Height="800" Width="1100" 
         WindowStartupLocation="CenterScreen"
         >
-    <TabControl x:Name="Tabs" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row ="1" />
+    <TabControl x:Name="Tabs" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
 </Window>
