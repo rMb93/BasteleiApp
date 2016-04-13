@@ -224,9 +224,9 @@ namespace BasteleiApp.ViewModels {
 
       RefreshBtnContent = "Refresh";
 
-      TempDiagram = new DiagramViewModel("Temperature", GetTestData());
-      PressureDiagram = new DiagramViewModel("Pressure", GetTestData());
-      HumDiagram = new DiagramViewModel("Humidity", GetTestData());
+      TempDiagram = new DiagramViewModel("Temperature", GetTestData(3));
+      PressureDiagram = new DiagramViewModel("Pressure", GetTestData(3));
+      HumDiagram = new DiagramViewModel("Humidity", GetTestData(3));
 
       DhLoc = new LocationViewModel("DH");
       WohnheimLoc = new LocationViewModel("Wohnheim");
@@ -249,8 +249,7 @@ namespace BasteleiApp.ViewModels {
       TimeSpansName.Add("Month");
       TimeSpansName.Add("Day");
       TimeSpansName.Add("Hour");
-
-      WeatherDataModel model = new WeatherDataModel();
+            
     }
 
     #endregion //Constructors
@@ -262,15 +261,22 @@ namespace BasteleiApp.ViewModels {
     public void LoadLocBtn() {
     }
 
-    private List<KeyValuePair<DateTime, double>> GetTestData() {
+    private List<KeyValuePair<DateTime, double>> GetTestData(int probeID) {
       List<KeyValuePair<DateTime, double>> test = new List<KeyValuePair<DateTime, double>>();
-      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 02), 1.0));
-      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 03), 4.0));
-      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 04), 5.0));
-      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 05), 2.0));
-      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 06), 1.0));
-      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 07), 3.0));
-      test.Add(new KeyValuePair<DateTime, double>(new DateTime(2016, 08, 08), 6.3));
+			using (basteleiEntities context = new basteleiEntities()) {
+				var query =
+				from value in context.measurements
+				where value.probe_id == probeID && 
+							value.value < 20 &&
+							value.value > 19
+				select new {
+					Date = value.time,
+					Value = value.value
+				};
+				foreach (var value in query) {
+					test.Add(new KeyValuePair<DateTime, double>(value.Date, value.Value));
+				}
+			}
       return test;
     }
 
