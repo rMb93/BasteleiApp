@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
+using Caliburn.Micro;
 
-namespace BasteleiApp.Models {
-  class WeatherDataModel : BaseModel {
+namespace BasteleiApp.ViewModels {
+  class RegisterProbeViewModel : Screen {
 
     #region Fields
-
-    private List<ProbeDataModel> _probes;
 
     #endregion //Fields
 
@@ -20,14 +18,13 @@ namespace BasteleiApp.Models {
 
     #region Constructors
 
-    public WeatherDataModel() {
-      CreateDbConnection();
+    public RegisterProbeViewModel() {
+      DisplayName = "Register Probe";
     }
 
     #endregion //Constructors
 
     #region Methods
-    
 
     #endregion //Methods
 

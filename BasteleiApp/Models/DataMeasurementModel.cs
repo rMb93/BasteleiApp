@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BasteleiApp {
-  class DataMeasurement {
+  class DataMeasurementModel {
 
     #region Fields
 
@@ -88,7 +88,7 @@ namespace BasteleiApp {
 
     #region Constructors
 
-    public DataMeasurement(DateTime time, double temp, double hum, double press, double alt) {
+    public DataMeasurementModel(DateTime time, double temp, double hum, double press, double alt) {
       TimeStamp = TimeStamp;
       Temperature = temp;
       Humidity = hum;
