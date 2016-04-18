@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Models.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="bastelei_ws.Models.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="measurements">
           <Key>
             <PropertyRef Name="id" />
@@ -23,7 +23,7 @@
           <Property Name="token" Type="varchar" MaxLength="62" Nullable="false" />
           <Property Name="locationname" Type="varchar" MaxLength="55" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="ModelsStoreContainer">
+        <EntityContainer Name="bastelei_wsModelsStoreContainer">
           <EntitySet Name="measurements" EntityType="Self.measurements" Schema="bastelei_ws" store:Type="Tables" />
           <EntitySet Name="probes" EntityType="Self.probes" Schema="bastelei_ws" store:Type="Tables" />
         </EntityContainer>
@@ -31,7 +31,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="bastelei_ws.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="measurements">
           <Key>
             <PropertyRef Name="id" />
@@ -50,7 +50,7 @@
           <Property Name="token" Type="String" MaxLength="62" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="locationname" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="basteleiEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="bastelei_ws" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="measurements" EntityType="Self.measurements" />
           <EntitySet Name="probes" EntityType="Self.probes" />
         </EntityContainer>
@@ -59,9 +59,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="basteleiEntities">
+        <EntityContainerMapping StorageEntityContainer="bastelei_wsModelsStoreContainer" CdmEntityContainer="bastelei_ws">
           <EntitySetMapping Name="measurements">
-            <EntityTypeMapping TypeName="Models.measurements">
+            <EntityTypeMapping TypeName="bastelei_ws.Models.measurements">
               <MappingFragment StoreEntitySet="measurements">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="probe_id" ColumnName="probe_id" />
@@ -72,7 +72,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="probes">
-            <EntityTypeMapping TypeName="Models.probes">
+            <EntityTypeMapping TypeName="bastelei_ws.Models.probes">
               <MappingFragment StoreEntitySet="probes">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="token" ColumnName="token" />

@@ -13,10 +13,10 @@ namespace BasteleiApp.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class basteleiEntities : DbContext
+    public partial class bastelei_ws : DbContext
     {
-        public basteleiEntities()
-            : base("name=basteleiEntities")
+        public bastelei_ws()
+            : base("name=bastelei_ws")
         {
         }
     

@@ -38,7 +38,7 @@ namespace BasteleiApp.ViewModels {
     public MainViewModel() {
       Tabs = new BindableCollection<object>();
       Tabs.Add(new DataPresentationViewModel());
-      Tabs.Add(new ControlPanelViewModel());
+      //Tabs.Add(new ControlPanelViewModel());
     }
 
     #endregion //Constructors

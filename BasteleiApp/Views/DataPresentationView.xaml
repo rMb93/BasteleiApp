@@ -18,21 +18,21 @@
             <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
         <WrapPanel Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0">
-            <Button x:Name="LoadLocBtn" 
+            <Button x:Name="Refresh" 
                 Content="{Binding RefreshBtnContent}"
                 Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
             </Button>
         </WrapPanel>
-        <StackPanel Grid.Row="1">
-            <Label x:Name="LocationsLbl"/>
-            <ListBox x:Name="Locations" ItemsSource="{Binding Locations}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch">
+        <DockPanel  Grid.Row="1" Height="auto" Width="auto" LastChildFill="True">
+            <Label x:Name="LocationsLbl" DockPanel.Dock="Top"/>
+            <ListBox x:Name="Locations" ItemsSource="{Binding Locations}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <ContentControl cal:View.Model="{Binding}" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </StackPanel>
+        </DockPanel>
 
         <ListBox x:Name="Diagrams" ItemsSource="{Binding Diagrams}" SelectedItem="{Binding SelectedDiagram}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Stretch">
             <ListBox.ItemTemplate>

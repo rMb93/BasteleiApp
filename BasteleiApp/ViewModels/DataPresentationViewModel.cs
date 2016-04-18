@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using BasteleiApp.Models;
+using BasteleiApp.Repositories;
 
 namespace BasteleiApp.ViewModels {
   class DataPresentationViewModel : Screen {
     #region Fields
-        
+
     private string _refreshBtnContent;
     private DiagramViewModel _tempDiagram;
     private DiagramViewModel _pressureDiagram;
@@ -27,189 +28,94 @@ namespace BasteleiApp.ViewModels {
     #endregion //Fields
 
     #region Properties
-    
-    public bool CanLoadLocBtn
-    {
+
+    public bool CanRefresh {
       get { return true; }
     }
 
-    public DiagramViewModel TempDiagram
-    {
-      get
-      {
-        return _tempDiagram;
-      }
-
-      set
-      {
-        _tempDiagram = value;
-        NotifyOfPropertyChange(() => TempDiagram);
-      }
-    }
-
-    public DiagramViewModel PressureDiagram
-    {
-      get
-      {
-        return _pressureDiagram;
-      }
-
-      set
-      {
-        _pressureDiagram = value;
-        NotifyOfPropertyChange(() => PressureDiagram);
-      }
-    }
-
-    public DiagramViewModel HumDiagram
-    {
-      get
-      {
-        return _humDiagram;
-      }
-
-      set
-      {
-        _humDiagram = value;
-        NotifyOfPropertyChange(() => HumDiagram);
-      }
-    }
-
-    public BindableCollection<DiagramViewModel> Diagrams
-    {
-      get
-      {
+    public BindableCollection<DiagramViewModel> Diagrams {
+      get {
         return _diagrams;
       }
 
-      set
-      {
+      set {
         _diagrams = value;
         NotifyOfPropertyChange(() => Diagrams);
       }
     }
-
-    public LocationViewModel DhLoc
-    {
-      get
-      {
-        return _dhLoc;
-      }
-
-      set
-      {
-        _dhLoc = value;
-        NotifyOfPropertyChange(() => DhLoc);
-      }
-    }
-
-    public LocationViewModel WohnheimLoc
-    {
-      get
-      {
-        return _wohnheimLoc;
-      }
-
-      set
-      {
-        _wohnheimLoc = value;
-        NotifyOfPropertyChange(() => WohnheimLoc);
-      }
-    }
-
-    public BindableCollection<LocationViewModel> Locations
-    {
-      get
-      {
+    
+    public BindableCollection<LocationViewModel> Locations {
+      get {
         return _locations;
       }
 
-      set
-      {
+      set {
         _locations = value;
         NotifyOfPropertyChange(() => Locations);
       }
     }
 
-    public string RefreshBtnContent
-    {
-      get
-      {
+    public string RefreshBtnContent {
+      get {
         return _refreshBtnContent;
       }
 
-      set
-      {
+      set {
         _refreshBtnContent = value;
         NotifyOfPropertyChange(() => RefreshBtnContent);
       }
     }
 
-    public DiagramViewModel SelectedDiagram
-    {
-      get
-      {
+    public DiagramViewModel SelectedDiagram {
+      get {
         return _selectedDiagram;
       }
 
-      set
-      {
+      set {
         _selectedDiagram = value;
         NotifyOfPropertyChange(() => SelectedDiagram);
       }
     }
 
-    public BindableCollection<string> TimeSpansName
-    {
-      get
-      {
+    public BindableCollection<string> TimeSpansName {
+      get {
         return _timeSpansName;
       }
 
-      set
-      {
+      set {
         _timeSpansName = value;
         NotifyOfPropertyChange(() => TimeSpansName);
       }
     }
 
-    public string SelectedTimeSpans
-    {
-      get
-      {
+    public string SelectedTimeSpans {
+      get {
         return _selectedTimeSpans;
       }
 
-      set
-      {
+      set {
         _selectedTimeSpans = value;
         NotifyOfPropertyChange(() => SelectedTimeSpans);
       }
     }
 
-    public string TimeSpanLbl
-    {
-      get
-      {
+    public string TimeSpanLbl {
+      get {
         return _timeSpanLbl;
       }
 
-      set
-      {
+      set {
         _timeSpanLbl = value;
         NotifyOfPropertyChange(() => TimeSpanLbl);
       }
     }
 
-    public string LocationsLbl
-    {
-      get
-      {
+    public string LocationsLbl {
+      get {
         return _locationsLbl;
       }
 
-      set
-      {
+      set {
         _locationsLbl = value;
         NotifyOfPropertyChange(() => LocationsLbl);
       }
@@ -224,23 +130,17 @@ namespace BasteleiApp.ViewModels {
 
       RefreshBtnContent = "Refresh";
 
-      TempDiagram = new DiagramViewModel("Temperature", GetTestData(3));
-      PressureDiagram = new DiagramViewModel("Pressure", GetTestData(3));
-      HumDiagram = new DiagramViewModel("Humidity", GetTestData(3));
-
-      DhLoc = new LocationViewModel("DH");
-      WohnheimLoc = new LocationViewModel("Wohnheim");
+      //TempDiagram = new DiagramViewModel("Temperature", GetTestData(3));
+      //PressureDiagram = new DiagramViewModel("Pressure", GetTestData(3));
+      //HumDiagram = new DiagramViewModel("Humidity", GetTestData(3));
+      
 
       Diagrams = new BindableCollection<DiagramViewModel>();
-      Diagrams.Add(TempDiagram);
-      Diagrams.Add(PressureDiagram);
-      Diagrams.Add(HumDiagram);
 
       LocationsLbl = "Locations:";
 
       Locations = new BindableCollection<LocationViewModel>();
-      Locations.Add(DhLoc);
-      Locations.Add(WohnheimLoc);
+      GetLocations();
 
       TimeSpanLbl = "Timespan:";
 
@@ -249,35 +149,34 @@ namespace BasteleiApp.ViewModels {
       TimeSpansName.Add("Month");
       TimeSpansName.Add("Day");
       TimeSpansName.Add("Hour");
-            
+
     }
 
     #endregion //Constructors
 
     #region Methods
 
-
-
-    public void LoadLocBtn() {
+    private void GetLocations() {
+      try {
+        var unitOfWork = new UnitOfWork(new bastelei_ws());
+        var locNames = unitOfWork.Probes.GetLocationNames();
+        foreach (var name in locNames) {
+          Locations.Add(new LocationViewModel(name));
+        }
+      }
+      catch (Exception ex) {
+        ;
+      }
     }
 
-    private List<KeyValuePair<DateTime, double>> GetTestData(int probeID) {
-      List<KeyValuePair<DateTime, double>> test = new List<KeyValuePair<DateTime, double>>();
-			using (basteleiEntities context = new basteleiEntities()) {
-				var query =
-				from value in context.measurements
-				where value.probe_id == probeID && 
-							value.value < 20 &&
-							value.value > 19
-				select new {
-					Date = value.time,
-					Value = value.value
-				};
-				foreach (var value in query) {
-					test.Add(new KeyValuePair<DateTime, double>(value.Date, value.Value));
-				}
-			}
-      return test;
+    public void Refresh() {
+      try {
+        var unitOfWork = new UnitOfWork(new bastelei_ws());
+        var test = unitOfWork.Probes.GetAll();
+      }
+      catch (Exception ex) {
+        ;
+      }
     }
 
     #endregion //Methods
