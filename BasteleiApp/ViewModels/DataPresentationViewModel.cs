@@ -13,17 +13,12 @@ namespace BasteleiApp.ViewModels {
     #region Fields
 
     private string _refreshBtnContent;
-    private DiagramViewModel _tempDiagram;
-    private DiagramViewModel _pressureDiagram;
-    private DiagramViewModel _humDiagram;
     private BindableCollection<DiagramViewModel> _diagrams;
     private DiagramViewModel _selectedDiagram;
     private string _locationsLbl;
-    private LocationViewModel _dhLoc;
-    private LocationViewModel _wohnheimLoc;
     private BindableCollection<LocationViewModel> _locations;
     private string _timeSpanLbl;
-    private BindableCollection<string> _timeSpansName;
+    private BindableCollection<string> _timeSpans;
     private string _selectedTimeSpans;
 
     #endregion //Fields
@@ -78,14 +73,14 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
-    public BindableCollection<string> TimeSpansName {
+    public BindableCollection<string> TimeSpans {
       get {
-        return _timeSpansName;
+        return _timeSpans;
       }
 
       set {
-        _timeSpansName = value;
-        NotifyOfPropertyChange(() => TimeSpansName);
+        _timeSpans = value;
+        NotifyOfPropertyChange(() => TimeSpans);
       }
     }
 
@@ -145,11 +140,11 @@ namespace BasteleiApp.ViewModels {
 
       TimeSpanLbl = "Timespan:";
 
-      TimeSpansName = new BindableCollection<string>();
-      TimeSpansName.Add("Year");
-      TimeSpansName.Add("Month");
-      TimeSpansName.Add("Day");
-      TimeSpansName.Add("Hour");
+      TimeSpans = new BindableCollection<string>();
+      TimeSpans.Add("Year");
+      TimeSpans.Add("Month");
+      TimeSpans.Add("Day");
+      TimeSpans.Add("Hour");
 
     }
 
@@ -171,12 +166,28 @@ namespace BasteleiApp.ViewModels {
     }
 
     public void Refresh() {
+      DateTime fromTime = GetFromTime();
       try {
         var unitOfWork = new UnitOfWork(new bastelei_ws());
         var test = unitOfWork.Probes.GetAll();
       }
       catch (Exception ex) {
         ;
+      }
+    }
+
+    private DateTime GetFromTime() {
+      switch (SelectedTimeSpans) {
+        case "Year":
+          return DateTime.Now.Subtract(TimeSpan.FromDays(365));
+        case "Month":
+          return DateTime.Now.Subtract(TimeSpan.FromDays(30));
+        case "Day":
+          return DateTime.Now.Subtract(TimeSpan.FromDays(1));
+        case "Hour":
+          return DateTime.Now.Subtract(TimeSpan.FromHours(1));
+        default:
+          return DateTime.Now;
       }
     }
 

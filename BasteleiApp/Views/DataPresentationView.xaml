@@ -43,7 +43,7 @@
         </ListBox>
         <StackPanel Grid.Row="2">
             <Label x:Name="TimeSpanLbl"/>
-            <ComboBox x:Name="TimeSpansName" SelectedIndex="0"/>
+            <ComboBox x:Name="TimeSpans" SelectedItem="{Binding SelectedTimeSpans}" SelectedIndex="0"/>
         </StackPanel>
     </Grid>
 </UserControl>

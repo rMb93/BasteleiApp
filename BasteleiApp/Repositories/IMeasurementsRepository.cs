@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace BasteleiApp.Repositories {
 	interface IMeasurementsRepository : IRepository<measurements> {
-    Dictionary<DateTime, double> GetDateValuePairs(int probeID, TimeSpan timeSpan, string dataType);
+    List<KeyValuePair<DateTime, double?>> GetDateValuePairs(int probeID, DateTime fromTime, string dataType);
 	}
 }
