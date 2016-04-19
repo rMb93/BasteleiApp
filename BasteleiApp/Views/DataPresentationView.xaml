@@ -18,14 +18,14 @@
             <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
         <WrapPanel Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0">
-            <Button x:Name="Refresh" 
+            <Button x:Name="RefreshData" 
                 Content="{Binding RefreshBtnContent}"
                 Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
             </Button>
         </WrapPanel>
         <DockPanel  Grid.Row="1" Height="auto" Width="auto" LastChildFill="True">
             <Label x:Name="LocationsLbl" DockPanel.Dock="Top"/>
-            <ListBox x:Name="Locations" ItemsSource="{Binding Locations}">
+            <ListBox x:Name="Locations" ItemsSource="{Binding Locations}" SelectedItem="{Binding SelectedLocation}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <ContentControl cal:View.Model="{Binding}" />
@@ -43,7 +43,7 @@
         </ListBox>
         <StackPanel Grid.Row="2">
             <Label x:Name="TimeSpanLbl"/>
-            <ComboBox x:Name="TimeSpans" SelectedItem="{Binding SelectedTimeSpans}" SelectedIndex="0"/>
+            <ComboBox x:Name="TimeSpans" SelectedItem="{Binding SelectedTimeSpan}" SelectedIndex="0"/>
         </StackPanel>
     </Grid>
 </UserControl>

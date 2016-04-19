@@ -19,7 +19,8 @@ namespace BasteleiApp.ViewModels {
     private BindableCollection<LocationViewModel> _locations;
     private string _timeSpanLbl;
     private BindableCollection<string> _timeSpans;
-    private string _selectedTimeSpans;
+    private string _selectedTimeSpan;
+    private LocationViewModel _selectedLocation;
 
     #endregion //Fields
 
@@ -84,14 +85,14 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
-    public string SelectedTimeSpans {
+    public string SelectedTimeSpan {
       get {
-        return _selectedTimeSpans;
+        return _selectedTimeSpan;
       }
 
       set {
-        _selectedTimeSpans = value;
-        NotifyOfPropertyChange(() => SelectedTimeSpans);
+        _selectedTimeSpan = value;
+        NotifyOfPropertyChange(() => SelectedTimeSpan);
       }
     }
 
@@ -114,6 +115,17 @@ namespace BasteleiApp.ViewModels {
       set {
         _locationsLbl = value;
         NotifyOfPropertyChange(() => LocationsLbl);
+      }
+    }
+
+    public LocationViewModel SelectedLocation {
+      get {
+        return _selectedLocation;
+      }
+
+      set {
+        _selectedLocation = value;
+        NotifyOfPropertyChange(() => SelectedLocation);
       }
     }
 
@@ -165,11 +177,15 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
-    public void Refresh() {
+    public void RefreshData() {
       DateTime fromTime = GetFromTime();
+      Diagrams.Clear();
       try {
         var unitOfWork = new UnitOfWork(new bastelei_ws());
-        var test = unitOfWork.Probes.GetAll();
+        var probeID = unitOfWork.Probes.GetProbeIDByName(SelectedLocation.LocationBtn);
+        Diagrams.Add(new DiagramViewModel("humidity", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "humidity")));
+        Diagrams.Add(new DiagramViewModel("temperature", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "temperature")));
+        Diagrams.Add(new DiagramViewModel("pressure", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "airpressure")));
       }
       catch (Exception ex) {
         ;
@@ -177,7 +193,7 @@ namespace BasteleiApp.ViewModels {
     }
 
     private DateTime GetFromTime() {
-      switch (SelectedTimeSpans) {
+      switch (SelectedTimeSpan) {
         case "Year":
           return DateTime.Now.Subtract(TimeSpan.FromDays(365));
         case "Month":
