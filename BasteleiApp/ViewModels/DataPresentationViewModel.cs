@@ -9,6 +9,7 @@ using BasteleiApp.Repositories;
 
 namespace BasteleiApp.ViewModels {
   class DataPresentationViewModel : Screen {
+
     #region Fields
 
     private string _refreshBtnContent;

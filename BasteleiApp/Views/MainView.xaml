@@ -12,5 +12,4 @@
         WindowStartupLocation="CenterScreen"
         >
     <TabControl x:Name="Tabs" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-
 </Window>
