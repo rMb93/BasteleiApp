@@ -12,6 +12,7 @@ namespace BasteleiApp.ViewModels {
     #region Fields
     
     private BindableCollection<object> _tabs;
+    private string _windowTitle;
 
     #endregion //Fields
 
@@ -31,11 +32,23 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
+    public string WindowTitle {
+      get {
+        return _windowTitle;
+      }
+
+      set {
+        _windowTitle = value;
+        NotifyOfPropertyChange(() => WindowTitle);
+      }
+    }
+
     #endregion //Properties
 
     #region Constructors
 
     public MainViewModel() {
+      WindowTitle = "bastelei";
       Tabs = new BindableCollection<object>();
       Tabs.Add(new DataPresentationViewModel());
       Tabs.Add(new ControlPanelViewModel());

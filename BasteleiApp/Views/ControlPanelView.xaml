@@ -8,4 +8,5 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <TabControl x:Name="Options" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TabStripPlacement="Left"/>
+
 </UserControl>

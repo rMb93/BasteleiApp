@@ -20,7 +20,9 @@ namespace BasteleiApp.ViewModels {
     private string _timeSpanLbl;
     private BindableCollection<string> _timeSpans;
     private string _selectedTimeSpan;
+    private int _timeInterval;
     private LocationViewModel _selectedLocation;
+    private bool _progessRingIsActive = false;
 
     #endregion //Fields
 
@@ -129,35 +131,34 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
+    public bool ProgessRingIsActive {
+      get {
+        return _progessRingIsActive;
+      }
+
+      set {
+        _progessRingIsActive = value;
+        NotifyOfPropertyChange(() => ProgessRingIsActive);
+      }
+    }
+
     #endregion //Properties
 
     #region Constructors
 
     public DataPresentationViewModel() {
       DisplayName = "Data Presentation";
-
-      RefreshBtnContent = "Refresh";
-
-      //TempDiagram = new DiagramViewModel("Temperature", GetTestData(3));
-      //PressureDiagram = new DiagramViewModel("Pressure", GetTestData(3));
-      //HumDiagram = new DiagramViewModel("Humidity", GetTestData(3));
-      
-
+      RefreshBtnContent = "Refresh";     
       Diagrams = new BindableCollection<DiagramViewModel>();
-
       LocationsLbl = "Locations:";
-
       Locations = new BindableCollection<LocationViewModel>();
       GetLocations();
-
       TimeSpanLbl = "Timespan:";
-
       TimeSpans = new BindableCollection<string>();
       TimeSpans.Add("Year");
       TimeSpans.Add("Month");
       TimeSpans.Add("Day");
       TimeSpans.Add("Hour");
-
     }
 
     #endregion //Constructors
@@ -178,29 +179,35 @@ namespace BasteleiApp.ViewModels {
     }
 
     public void RefreshData() {
+      ProgessRingIsActive = true;
       DateTime fromTime = GetFromTime();
       Diagrams.Clear();
       try {
         var unitOfWork = new UnitOfWork(new bastelei_ws());
         var probeID = unitOfWork.Probes.GetProbeIDByName(SelectedLocation.LocationBtn);
-        Diagrams.Add(new DiagramViewModel("humidity", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "humidity")));
-        Diagrams.Add(new DiagramViewModel("temperature", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "temperature")));
-        Diagrams.Add(new DiagramViewModel("pressure", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "airpressure")));
+        Diagrams.Add(new DiagramViewModel("humidity", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "humidity", _timeInterval)));
+        Diagrams.Add(new DiagramViewModel("temperature", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "temperature", _timeInterval)));
+        Diagrams.Add(new DiagramViewModel("pressure", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "airpressure",  _timeInterval)));
       }
       catch (Exception ex) {
         ;
       }
+      ProgessRingIsActive = false;
     }
 
     private DateTime GetFromTime() {
       switch (SelectedTimeSpan) {
         case "Year":
+          _timeInterval = 43200;
           return DateTime.Now.Subtract(TimeSpan.FromDays(365));
         case "Month":
+          _timeInterval = 1440;
           return DateTime.Now.Subtract(TimeSpan.FromDays(30));
         case "Day":
+          _timeInterval = 60;
           return DateTime.Now.Subtract(TimeSpan.FromDays(1));
         case "Hour":
+          _timeInterval = 10;
           return DateTime.Now.Subtract(TimeSpan.FromHours(1));
         default:
           return DateTime.Now;

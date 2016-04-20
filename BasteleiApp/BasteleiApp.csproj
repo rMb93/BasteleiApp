@@ -257,6 +257,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Icons\ic_launcher.png" />
     <Content Include="Models\BasteleiORM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BasteleiORM.edmx</DependentUpon>

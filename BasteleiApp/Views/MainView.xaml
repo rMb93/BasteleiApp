@@ -6,9 +6,10 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:BasteleiApp"
         xmlns:cal="http://www.caliburnproject.org"
+        Title="{Binding WindowTitle}"
         mc:Ignorable="d"
         Height="800" Width="1100" 
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen" Icon="/BasteleiApp;component/Icons/ic_launcher.png"
         >
     <TabControl x:Name="Tabs" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 </Controls:MetroWindow>
