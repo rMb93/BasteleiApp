@@ -157,6 +157,7 @@ namespace BasteleiApp.ViewModels {
       TimeSpans = new BindableCollection<string>();
       TimeSpans.Add("Year");
       TimeSpans.Add("Month");
+      TimeSpans.Add("Week");
       TimeSpans.Add("Day");
       TimeSpans.Add("Hour");
     }
@@ -203,11 +204,14 @@ namespace BasteleiApp.ViewModels {
         case "Month":
           _timeInterval = 1440;
           return DateTime.Now.Subtract(TimeSpan.FromDays(30));
+        case "Week":
+          _timeInterval = 360;
+          return DateTime.Now.Subtract(TimeSpan.FromDays(7));
         case "Day":
           _timeInterval = 60;
           return DateTime.Now.Subtract(TimeSpan.FromDays(1));
         case "Hour":
-          _timeInterval = 10;
+          _timeInterval = 5;
           return DateTime.Now.Subtract(TimeSpan.FromHours(1));
         default:
           return DateTime.Now;
