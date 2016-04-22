@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 using BasteleiApp.Models;
 using BasteleiApp.Repositories;
+using System.ComponentModel;
 
 namespace BasteleiApp.ViewModels {
   class DataPresentationViewModel : Screen {
@@ -23,6 +24,7 @@ namespace BasteleiApp.ViewModels {
     private int _timeInterval;
     private LocationViewModel _selectedLocation;
     private bool _progessRingIsActive = false;
+    private readonly BackgroundWorker _worker = new BackgroundWorker();
 
     #endregion //Fields
 
@@ -160,6 +162,8 @@ namespace BasteleiApp.ViewModels {
       TimeSpans.Add("Week");
       TimeSpans.Add("Day");
       TimeSpans.Add("Hour");
+      _worker.DoWork += Worker_RefreshData;
+      _worker.WorkerSupportsCancellation = true;
     }
 
     #endregion //Constructors
@@ -180,20 +184,7 @@ namespace BasteleiApp.ViewModels {
     }
 
     public void RefreshData() {
-      ProgessRingIsActive = true;
-      DateTime fromTime = GetFromTime();
-      Diagrams.Clear();
-      try {
-        var unitOfWork = new UnitOfWork(new bastelei_ws());
-        var probeID = unitOfWork.Probes.GetProbeIDByName(SelectedLocation.LocationBtn);
-        Diagrams.Add(new DiagramViewModel("humidity", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "humidity", _timeInterval)));
-        Diagrams.Add(new DiagramViewModel("temperature", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "temperature", _timeInterval)));
-        Diagrams.Add(new DiagramViewModel("pressure", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "airpressure",  _timeInterval)));
-      }
-      catch (Exception ex) {
-        ;
-      }
-      ProgessRingIsActive = false;
+      _worker.RunWorkerAsync();
     }
 
     private DateTime GetFromTime() {
@@ -216,6 +207,23 @@ namespace BasteleiApp.ViewModels {
         default:
           return DateTime.Now;
       }
+    }
+
+    private void Worker_RefreshData(object sender, DoWorkEventArgs e) {
+      ProgessRingIsActive = true;
+      DateTime fromTime = GetFromTime();
+      Diagrams.Clear();
+      try {
+        var unitOfWork = new UnitOfWork(new bastelei_ws());
+        var probeID = unitOfWork.Probes.GetProbeIDByName(SelectedLocation.LocationBtn);
+        Diagrams.Add(new DiagramViewModel("humidity", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "humidity", _timeInterval)));
+        Diagrams.Add(new DiagramViewModel("temperature", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "temperature", _timeInterval)));
+        Diagrams.Add(new DiagramViewModel("pressure", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "airpressure", _timeInterval)));
+      }
+      catch (Exception ex) {
+        ;
+      }
+      ProgessRingIsActive = false;
     }
 
     #endregion //Methods

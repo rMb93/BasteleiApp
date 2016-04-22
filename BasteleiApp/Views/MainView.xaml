@@ -6,10 +6,13 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:BasteleiApp"
         xmlns:cal="http://www.caliburnproject.org"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         Title="{Binding WindowTitle}"
         mc:Ignorable="d"
         Height="800" Width="1100" 
         WindowStartupLocation="CenterScreen" Icon="/BasteleiApp;component/Icons/ic_launcher.png"
         >
-    <TabControl x:Name="Tabs" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    <TabControl x:Name="Tabs" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                SelectedItem="{Binding SelectedItem}" cal:Message.Attach="[Event SelectionChanged] = [TabSelectionChanged]" >
+    </TabControl>
 </Controls:MetroWindow>
