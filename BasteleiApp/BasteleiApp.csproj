@@ -130,6 +130,7 @@
     </ApplicationDefinition>
     <Compile Include="ActionHelper.cs" />
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="IMainScreenTabItem.cs" />
     <Compile Include="Models\BasteleiORM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
