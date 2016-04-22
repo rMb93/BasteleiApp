@@ -11,19 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
 
 namespace BasteleiApp.Views {
   /// <summary>
-  /// Interaction logic for MainView.xaml
+  /// Interaktionslogik für LoginView.xaml
   /// </summary>
-  public partial class MainView : MetroWindow {
-    public MainView() {
+  public partial class LoginView : Window {
+    public LoginView() {
       InitializeComponent();
-    }
-
-    private void Tabs_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
     }
   }
 }

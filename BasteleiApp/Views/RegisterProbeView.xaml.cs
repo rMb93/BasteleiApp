@@ -10,20 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
 
 namespace BasteleiApp.Views {
   /// <summary>
-  /// Interaction logic for MainView.xaml
+  /// Interaction logic for RegisterProbeView.xaml
   /// </summary>
-  public partial class MainView : MetroWindow {
-    public MainView() {
+  public partial class RegisterProbeView : UserControl {
+    public RegisterProbeView() {
       InitializeComponent();
-    }
-
-    private void Tabs_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
     }
   }
 }

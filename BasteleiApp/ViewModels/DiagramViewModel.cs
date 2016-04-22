@@ -10,14 +10,14 @@ namespace BasteleiApp.ViewModels {
 
     #region Fields
 
-    List<KeyValuePair<DateTime, double>> _weatherData = new List<KeyValuePair<DateTime, double>>();
+    List<KeyValuePair<DateTime, double?>> _weatherData = new List<KeyValuePair<DateTime, double?>>();
     string _title;
 
     #endregion //Fields
 
     #region Properties    
 
-    public List<KeyValuePair<DateTime, double>> WeatherData
+    public List<KeyValuePair<DateTime, double?>> WeatherData
     {
       get
       {
@@ -49,7 +49,7 @@ namespace BasteleiApp.ViewModels {
 
     #region Constructors
 
-    public DiagramViewModel(string title, List<KeyValuePair<DateTime, double>> weatherData) {
+    public DiagramViewModel(string title, List<KeyValuePair<DateTime, double?>> weatherData) {
       Title = title;
       WeatherData = weatherData;
     }
