@@ -158,6 +158,7 @@
     <Compile Include="Repositories\ProbesRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
+    <Compile Include="Test\TestClass.cs" />
     <Compile Include="ViewModels\ControlPanelViewModel.cs" />
     <Compile Include="ViewModels\DataPresentationViewModel.cs" />
     <Compile Include="ViewModels\DiagramViewModel.cs" />

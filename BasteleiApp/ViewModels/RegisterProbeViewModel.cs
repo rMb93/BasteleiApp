@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 
 namespace BasteleiApp.ViewModels {
-  class RegisterProbeViewModel : Screen {
+  public class RegisterProbeViewModel : Screen {
 
     #region Fields
 

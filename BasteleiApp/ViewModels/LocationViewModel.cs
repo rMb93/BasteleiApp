@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 
 namespace BasteleiApp.ViewModels {
-  class LocationViewModel : PropertyChangedBase {
+  public class LocationViewModel : PropertyChangedBase {
 
     #region Fields
 

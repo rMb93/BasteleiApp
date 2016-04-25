@@ -7,7 +7,7 @@ using Caliburn.Micro;
 using BasteleiApp.Models;
 
 namespace BasteleiApp.ViewModels {
-  class MainViewModel : Screen {
+  public class MainViewModel : Screen {
 
     #region Fields
     

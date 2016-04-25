@@ -22,10 +22,10 @@ namespace BasteleiApp.Repositories {
 
     public List<KeyValuePair<DateTime, double?>> GetDateValuePairs(int probeID, DateTime fromTime, string dataType, int interval) {
       var query = (from m in BasteleiContext.measurements
-               where m.time > fromTime && 
+                  where m.time > fromTime && 
                       m.probe_id == probeID &&
                       m.datatype == dataType
-               select new { m.time, m.value });
+                  select new { m.time, m.value });
 
       List<KeyValuePair<DateTime, double?>> keyValPairs = new List<KeyValuePair<DateTime, double?>>();
       DateTime tempTime = fromTime;

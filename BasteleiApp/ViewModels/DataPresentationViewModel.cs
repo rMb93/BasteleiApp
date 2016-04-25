@@ -8,7 +8,7 @@ using BasteleiApp.Models;
 using BasteleiApp.Repositories;
 
 namespace BasteleiApp.ViewModels {
-  class DataPresentationViewModel : Screen {
+  public class DataPresentationViewModel : Screen {
 
     #region Fields
 
@@ -20,7 +20,7 @@ namespace BasteleiApp.ViewModels {
     private string _timeSpanLbl;
     private BindableCollection<string> _timeSpans;
     private string _selectedTimeSpan;
-    private int _timeInterval;
+    private int _timeIntervalInMinutes;
     private LocationViewModel _selectedLocation;
     private bool _progessRingIsActive = false;
 
@@ -175,7 +175,29 @@ namespace BasteleiApp.ViewModels {
         }
       }
       catch (Exception ex) {
-        ;
+        throw new SystemException("Couldn't connect to DB", ex);
+      }
+    }
+
+    private DateTime GetFromTime() {
+      switch (SelectedTimeSpan) {
+        case "Year":
+          _timeIntervalInMinutes = 43200;
+          return DateTime.Now.Subtract(TimeSpan.FromDays(365));
+        case "Month":
+          _timeIntervalInMinutes = 1440;
+          return DateTime.Now.Subtract(TimeSpan.FromDays(30));
+        case "Week":
+          _timeIntervalInMinutes = 360;
+          return DateTime.Now.Subtract(TimeSpan.FromDays(7));
+        case "Day":
+          _timeIntervalInMinutes = 60;
+          return DateTime.Now.Subtract(TimeSpan.FromDays(1));
+        case "Hour":
+          _timeIntervalInMinutes = 5;
+          return DateTime.Now.Subtract(TimeSpan.FromHours(1));
+        default:
+          return DateTime.Now;
       }
     }
 
@@ -186,36 +208,17 @@ namespace BasteleiApp.ViewModels {
       try {
         var unitOfWork = new UnitOfWork(new bastelei_ws());
         var probeID = unitOfWork.Probes.GetProbeIDByName(SelectedLocation.LocationBtn);
-        Diagrams.Add(new DiagramViewModel("humidity", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "humidity", _timeInterval)));
-        Diagrams.Add(new DiagramViewModel("temperature", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "temperature", _timeInterval)));
-        Diagrams.Add(new DiagramViewModel("pressure", unitOfWork.Measurements.GetDateValuePairs(probeID, fromTime, "airpressure",  _timeInterval)));
+        Diagrams.Add(new DiagramViewModel("humidity", unitOfWork.Measurements.GetDateValuePairs(probeID,
+                                          fromTime, "humidity", _timeIntervalInMinutes)));
+        Diagrams.Add(new DiagramViewModel("temperature", unitOfWork.Measurements.GetDateValuePairs(probeID,
+                                          fromTime, "temperature", _timeIntervalInMinutes)));
+        Diagrams.Add(new DiagramViewModel("pressure", unitOfWork.Measurements.GetDateValuePairs(probeID,
+                                          fromTime, "airpressure", _timeIntervalInMinutes)));
       }
       catch (Exception ex) {
         ;
       }
       ProgessRingIsActive = false;
-    }
-
-    private DateTime GetFromTime() {
-      switch (SelectedTimeSpan) {
-        case "Year":
-          _timeInterval = 43200;
-          return DateTime.Now.Subtract(TimeSpan.FromDays(365));
-        case "Month":
-          _timeInterval = 1440;
-          return DateTime.Now.Subtract(TimeSpan.FromDays(30));
-        case "Week":
-          _timeInterval = 360;
-          return DateTime.Now.Subtract(TimeSpan.FromDays(7));
-        case "Day":
-          _timeInterval = 60;
-          return DateTime.Now.Subtract(TimeSpan.FromDays(1));
-        case "Hour":
-          _timeInterval = 5;
-          return DateTime.Now.Subtract(TimeSpan.FromHours(1));
-        default:
-          return DateTime.Now;
-      }
     }
 
     #endregion //Methods
