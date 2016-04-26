@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 
 namespace BasteleiApp {
-  interface IMainScreenTabItem : IScreen {
+  public interface IMainScreenTabItem : IScreen {
   }
 }

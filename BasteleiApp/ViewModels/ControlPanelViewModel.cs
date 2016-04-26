@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 
 namespace BasteleiApp.ViewModels {
-  public class ControlPanelViewModel : Screen {
+  public class ControlPanelViewModel : Screen, IMainScreenTabItem {
 
     #region Fields
     

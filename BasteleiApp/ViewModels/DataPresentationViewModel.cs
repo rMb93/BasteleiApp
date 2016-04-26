@@ -8,7 +8,7 @@ using BasteleiApp.Models;
 using BasteleiApp.Repositories;
 
 namespace BasteleiApp.ViewModels {
-  public class DataPresentationViewModel : Screen {
+  public class DataPresentationViewModel : Screen, IMainScreenTabItem {
 
     #region Fields
 
