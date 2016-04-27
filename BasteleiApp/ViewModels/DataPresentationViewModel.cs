@@ -8,7 +8,7 @@ using BasteleiApp.Models;
 using BasteleiApp.Repositories;
 
 namespace BasteleiApp.ViewModels {
-  public class DataPresentationViewModel : Screen, IMainScreenTabItem {
+  public class DataPresentationViewModel : Screen {
 
     #region Fields
 
@@ -147,7 +147,7 @@ namespace BasteleiApp.ViewModels {
     #region Constructors
 
     public DataPresentationViewModel() {
-      DisplayName = "Data Presentation";
+      DisplayName = "Presentation";
       RefreshBtnContent = "Refresh";     
       Diagrams = new BindableCollection<DiagramViewModel>();
       LocationsLbl = "Locations:";

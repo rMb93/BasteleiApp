@@ -13,6 +13,15 @@
         WindowStartupLocation="CenterScreen" Icon="/BasteleiApp;component/Icons/ic_launcher.png"
         >
     <TabControl x:Name="Tabs" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                SelectedItem="{Binding SelectedItem}" cal:Message.Attach="[Event SelectionChanged] = [TabSelectionChanged]" >
+                SelectedItem="{Binding SelectedItem}" cal:Message.Attach="[Event SelectionChanged] = [TabSelectionChanged($eventArgs)]" >
+        <TabItem Header="Login">
+            <ContentControl x:Name="LoginVM"/>
+        </TabItem>
+        <TabItem Header="Presentation">
+            <ContentControl x:Name="DataPresentationVM"/>
+        </TabItem>
+        <TabItem Header="Control">
+            <ContentControl x:Name="ControlPanelVM"/>
+        </TabItem>        
     </TabControl>
 </Controls:MetroWindow>

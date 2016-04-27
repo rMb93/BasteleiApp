@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 
 namespace BasteleiApp.ViewModels {
-  public class ControlPanelViewModel : Screen, IMainScreenTabItem {
+  public class ControlPanelViewModel : Screen {
 
     #region Fields
     
@@ -34,7 +34,7 @@ namespace BasteleiApp.ViewModels {
     #region Constructors
 
     public ControlPanelViewModel() {
-      DisplayName = "Control Panel";
+      DisplayName = "Control";
 
       Options = new BindableCollection<object>();
       Options.Add(new RegisterProbeViewModel());

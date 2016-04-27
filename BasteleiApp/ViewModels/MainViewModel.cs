@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 using BasteleiApp.Models;
 using System.ComponentModel.Composition;
+using System.Windows.Controls;
 
 namespace BasteleiApp.ViewModels {
   [Export(typeof(MainViewModel))]
-  class MainViewModel : Conductor<IMainScreenTabItem>.Collection.OneActive {
+  class MainViewModel : Screen {
 
     #region Fields
 
-    private BindableCollection<IMainScreenTabItem> _tabs;
     private DataPresentationViewModel _dataPresentationVM;
     private ControlPanelViewModel _controlPanelVM;
+    private LoginViewModel _loginVM;
     private object _selectedItem;
     private string _windowTitle;
     private readonly IWindowManager _windowManager;
@@ -23,20 +24,6 @@ namespace BasteleiApp.ViewModels {
     #endregion //Fields
 
     #region Properties
-
-    public BindableCollection<IMainScreenTabItem> Tabs
-    {
-      get
-      {
-        return _tabs;
-      }
-
-      set
-      {
-        _tabs = value;
-        NotifyOfPropertyChange(() => Tabs);
-      }
-    }
 
     public string WindowTitle
     {
@@ -66,6 +53,48 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
+    public DataPresentationViewModel DataPresentationVM
+    {
+      get
+      {
+        return _dataPresentationVM;
+      }
+
+      set
+      {
+        _dataPresentationVM = value;
+        NotifyOfPropertyChange(() => DataPresentationVM);
+      }
+    }
+
+    public ControlPanelViewModel ControlPanelVM
+    {
+      get
+      {
+        return _controlPanelVM;
+      }
+
+      set
+      {
+        _controlPanelVM = value;
+        NotifyOfPropertyChange(() => ControlPanelVM);
+      }
+    }
+
+    public LoginViewModel LoginVM
+    {
+      get
+      {
+        return _loginVM;
+      }
+
+      set
+      {
+        _loginVM = value;
+        NotifyOfPropertyChange(() => LoginVM);
+      }
+    }
+
     #endregion //Properties
 
     #region Constructors
@@ -73,12 +102,9 @@ namespace BasteleiApp.ViewModels {
     [ImportingConstructor]
     public MainViewModel(IWindowManager windowManager) {
       WindowTitle = "bastelei";
-      _dataPresentationVM = new DataPresentationViewModel();
-      _controlPanelVM = new ControlPanelViewModel();
-      Tabs = new BindableCollection<IMainScreenTabItem>();
-      Tabs.Add(_dataPresentationVM);
-      Tabs.Add(_controlPanelVM);
-      ActivateItem(_dataPresentationVM);
+      LoginVM = new LoginViewModel();
+      DataPresentationVM = new DataPresentationViewModel();
+      ControlPanelVM = new ControlPanelViewModel();
       _windowManager = windowManager;
     }
 
@@ -86,12 +112,13 @@ namespace BasteleiApp.ViewModels {
 
     #region Methods
 
-    public void TabSelectionChanged() {
-      if (SelectedItem.GetType() == typeof(ControlPanelViewModel)) {
-        _windowManager.ShowWindow(new LoginViewModel());
-
-      }
-      if (SelectedItem.GetType() == typeof(DataPresentationViewModel)) {
+    public void TabSelectionChanged(SelectionChangedEventArgs e) {
+      {
+        var test = e.Source;
+        if (SelectedItem.GetType() == typeof(ControlPanelViewModel)) {
+        }
+        if (SelectedItem.GetType() == typeof(DataPresentationViewModel)) {
+        }
       }
     }
 
