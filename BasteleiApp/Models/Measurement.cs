@@ -12,12 +12,14 @@ namespace BasteleiApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class measurements
+    public partial class Measurement
     {
         public int id { get; set; }
         public int probe_id { get; set; }
         public System.DateTime time { get; set; }
         public string datatype { get; set; }
         public float value { get; set; }
+    
+        public virtual Probe Probe { get; set; }
     }
 }

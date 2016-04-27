@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 
 namespace BasteleiApp.Repositories {
-  class ProbesRepository : Repository<probes>, IProbesRepository {
+  class ProbesRepository : Repository<Probe>, IProbesRepository {
 
     #region Fields
 
@@ -28,12 +28,12 @@ namespace BasteleiApp.Repositories {
     }
 
     public IEnumerable<string> GetLocationNames() {
-      return from probes in BasteleiContext.probes
+      return from probes in BasteleiContext.Probe
              select probes.locationname;
     }
 
     public int GetProbeIDByName(string name) {
-      IEnumerable<int> probeIDs = from probes in BasteleiContext.probes
+      IEnumerable<int> probeIDs = from probes in BasteleiContext.Probe
                                   where probes.locationname == name
                                   select probes.id;
 

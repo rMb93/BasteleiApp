@@ -130,26 +130,29 @@
     </ApplicationDefinition>
     <Compile Include="ActionHelper.cs" />
     <Compile Include="AppBootstrapper.cs" />
-    <Compile Include="Models\BasteleiORM.Context.cs">
+    <Compile Include="Models\basteleiORM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BasteleiORM.Context.tt</DependentUpon>
+      <DependentUpon>basteleiORM.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BasteleiORM.cs">
+    <Compile Include="Models\basteleiORM.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BasteleiORM.tt</DependentUpon>
+      <DependentUpon>basteleiORM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BasteleiORM.Designer.cs">
+    <Compile Include="Models\basteleiORM.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BasteleiORM.edmx</DependentUpon>
+      <DependentUpon>basteleiORM.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\measurements.cs">
-      <DependentUpon>BasteleiORM.tt</DependentUpon>
+    <Compile Include="Models\Measurement.cs">
+      <DependentUpon>basteleiORM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\probes.cs">
-      <DependentUpon>BasteleiORM.tt</DependentUpon>
+    <Compile Include="Models\Probe.cs">
+      <DependentUpon>basteleiORM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>basteleiORM.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\IMeasurementsRepository.cs" />
     <Compile Include="Repositories\IProbesRepository.cs" />
@@ -211,12 +214,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\BasteleiORM.edmx">
+    <EntityDeploy Include="Models\basteleiORM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BasteleiORM.Designer.cs</LastGenOutput>
+      <LastGenOutput>basteleiORM.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\BasteleiORM.edmx.diagram">
-      <DependentUpon>BasteleiORM.edmx</DependentUpon>
+    <None Include="Models\basteleiORM.edmx.diagram">
+      <DependentUpon>basteleiORM.edmx</DependentUpon>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -268,15 +271,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icons\ic_launcher.png" />
-    <Content Include="Models\BasteleiORM.Context.tt">
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Models\basteleiORM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BasteleiORM.edmx</DependentUpon>
-      <LastGenOutput>BasteleiORM.Context.cs</LastGenOutput>
+      <DependentUpon>basteleiORM.edmx</DependentUpon>
+      <LastGenOutput>basteleiORM.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\BasteleiORM.tt">
+    <Content Include="Models\basteleiORM.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BasteleiORM.edmx</DependentUpon>
-      <LastGenOutput>BasteleiORM.cs</LastGenOutput>
+      <DependentUpon>basteleiORM.edmx</DependentUpon>
+      <LastGenOutput>basteleiORM.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

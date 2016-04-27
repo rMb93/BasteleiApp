@@ -25,7 +25,8 @@ namespace BasteleiApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<measurements> measurements { get; set; }
-        public virtual DbSet<probes> probes { get; set; }
+        public virtual DbSet<Measurement> Measurement { get; set; }
+        public virtual DbSet<Probe> Probe { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

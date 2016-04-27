@@ -20,6 +20,7 @@ namespace BasteleiApp.ViewModels {
     private object _selectedItem;
     private string _windowTitle;
     private readonly IWindowManager _windowManager;
+    private bool _controlPanelIsEnabled;
 
     #endregion //Fields
 
@@ -92,6 +93,20 @@ namespace BasteleiApp.ViewModels {
       {
         _loginVM = value;
         NotifyOfPropertyChange(() => LoginVM);
+      }
+    }
+
+    public bool ControlPanelIsEnabled
+    {
+      get
+      {
+        return _controlPanelIsEnabled;
+      }
+
+      set
+      {
+        _controlPanelIsEnabled = value;
+        NotifyOfPropertyChange(() => ControlPanelIsEnabled);
       }
     }
 

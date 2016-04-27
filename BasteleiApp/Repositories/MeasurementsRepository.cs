@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using BasteleiApp.Models;
 
 namespace BasteleiApp.Repositories {
-	class MeasurementsRepository : Repository<measurements>, IMeasurementsRepository {
+	class MeasurementsRepository : Repository<Measurement>, IMeasurementsRepository {
     
 		public MeasurementsRepository(DbContext context) : base(context) {
 
@@ -21,7 +21,7 @@ namespace BasteleiApp.Repositories {
     }
 
     public List<KeyValuePair<DateTime, double?>> GetDateValuePairs(int probeID, DateTime fromTime, string dataType, int interval) {
-      var query = (from m in BasteleiContext.measurements
+      var query = (from m in BasteleiContext.Measurement
                   where m.time > fromTime && 
                       m.probe_id == probeID &&
                       m.datatype == dataType
