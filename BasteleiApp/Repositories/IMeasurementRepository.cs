@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BasteleiApp.Repositories {
-	interface IMeasurementsRepository : IRepository<Measurement> {
+	interface IMeasurementRepository : IRepository<Measurement> {
     List<KeyValuePair<DateTime, double?>> GetDateValuePairs(int probeID, DateTime fromTime, string dataType, int interval);
 	}
 }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using BasteleiApp.Models;
 
 namespace BasteleiApp.Repositories {
-	class MeasurementsRepository : Repository<Measurement>, IMeasurementsRepository {
+	class MeasurementRepository : Repository<Measurement>, IMeasurementRepository {
     
-		public MeasurementsRepository(DbContext context) : base(context) {
+		public MeasurementRepository(DbContext context) : base(context) {
 
 		}
 

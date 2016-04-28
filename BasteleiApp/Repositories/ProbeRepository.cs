@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 
 namespace BasteleiApp.Repositories {
-  class ProbesRepository : Repository<Probe>, IProbesRepository {
+  class ProbeRepository : Repository<Probe>, IProbeRepository {
 
     #region Fields
 
@@ -24,7 +24,7 @@ namespace BasteleiApp.Repositories {
     #endregion //Properties
 
     #region Constructors
-    public ProbesRepository(DbContext context) : base(context) {
+    public ProbeRepository(DbContext context) : base(context) {
     }
 
     public IEnumerable<string> GetLocationNames() {

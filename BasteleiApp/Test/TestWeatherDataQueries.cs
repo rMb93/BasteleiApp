@@ -2,9 +2,9 @@
 using BasteleiApp.ViewModels;
 using NUnit.Framework;  
 
-namespace UnitTests {
+namespace Tests {
   [TestFixture]
-  public class TestClass {
+  public class TestWeatherDataQueries {
     [Test]
     public void CheckGettingLocationData() {
       DataPresentationViewModel dataPresentationVM = new DataPresentationViewModel();

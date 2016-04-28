@@ -16,11 +16,11 @@ namespace BasteleiApp.Repositories {
 
 		#region Properties
 
-		public IMeasurementsRepository Measurements {
+		public IMeasurementRepository Measurements {
 			get; private set;
 		}
 
-		public IProbesRepository Probes {
+		public IProbeRepository Probes {
 			get; private set;
 		}
 
@@ -30,8 +30,8 @@ namespace BasteleiApp.Repositories {
 
 		public UnitOfWork(bastelei_ws context) {
 			_context = context;
-			Probes = new ProbesRepository(_context);
-			Measurements = new MeasurementsRepository(_context);
+			Probes = new ProbeRepository(_context);
+			Measurements = new MeasurementRepository(_context);
 		}
 
 		#endregion //Constructors

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BasteleiApp.Repositories {
 	interface IUnitOfWork : IDisposable{
-		IProbesRepository Probes { get; }
-		IMeasurementsRepository Measurements { get; }
+		IProbeRepository Probes { get; }
+		IMeasurementRepository Measurements { get; }
 		int Complete();
 	}
 }

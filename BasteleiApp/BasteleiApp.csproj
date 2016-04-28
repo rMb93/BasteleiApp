@@ -128,7 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ActionHelper.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Test\TestPasswordEncryption.cs" />
+    <Compile Include="Tools.cs" />
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Models\basteleiORM.Context.cs">
       <AutoGen>True</AutoGen>
@@ -154,21 +157,22 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>basteleiORM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\IMeasurementsRepository.cs" />
-    <Compile Include="Repositories\IProbesRepository.cs" />
+    <Compile Include="Repositories\IMeasurementRepository.cs" />
+    <Compile Include="Repositories\IProbeRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
-    <Compile Include="Repositories\MeasurementsRepository.cs" />
-    <Compile Include="Repositories\ProbesRepository.cs" />
+    <Compile Include="Repositories\MeasurementRepository.cs" />
+    <Compile Include="Repositories\ProbeRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
-    <Compile Include="Test\TestClass.cs" />
+    <Compile Include="Test\TestWeatherDataQueries.cs" />
     <Compile Include="ViewModels\ControlPanelViewModel.cs" />
     <Compile Include="ViewModels\DataPresentationViewModel.cs" />
     <Compile Include="ViewModels\DiagramViewModel.cs" />
     <Compile Include="ViewModels\LocationViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterProbeViewModel.cs" />
+    <Compile Include="ViewModels\RegisterUserViewModel.cs" />
     <Compile Include="Views\ControlPanelView.xaml.cs">
       <DependentUpon>ControlPanelView.xaml</DependentUpon>
     </Compile>
@@ -194,6 +198,9 @@
     </Compile>
     <Compile Include="Views\RegisterProbeView.xaml.cs">
       <DependentUpon>RegisterProbeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterUserView.xaml.cs">
+      <DependentUpon>RegisterUserView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +274,10 @@
     <Page Include="Views\RegisterProbeView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RegisterUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
