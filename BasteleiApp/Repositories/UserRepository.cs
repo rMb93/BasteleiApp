@@ -21,14 +21,29 @@ namespace BasteleiApp.Repositories {
 
     }
 
-    public void RegisterUser(string pName, string pSurname, string pMail, string pPassword) {
+    public void AddUser(string pName, string pSurname, string pMail, string pPassword) {
       User newUser = new User {
         name = pName,
         surname = pSurname,
         mailadress = pMail,
-        password = pPassword       
+        password = pPassword,
+        privilege = 1       
       };
       BasteleiContext.User.Add(newUser);
+    }
+
+    public string GetPassword(string mail) {
+      var query = from u in BasteleiContext.User
+                  where u.mailadress == mail
+                  select u.password;
+      return query.First<string>();
+    }
+
+    public string GetName (string mail) {
+      var query = from u in BasteleiContext.User
+                  where u.mailadress == mail
+                  select u.name;
+      return query.First<string>();
     }
   }
 }

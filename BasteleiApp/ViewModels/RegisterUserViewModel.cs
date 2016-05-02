@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using BasteleiApp.Repositories;
+using BasteleiApp.Models;
 
 namespace BasteleiApp.ViewModels {
   class RegisterUserViewModel : Screen{
@@ -85,7 +87,21 @@ namespace BasteleiApp.ViewModels {
     #region Methods
 
     public void Register() {
+      if(Name != null && Surname != null && MailAdress != null && Password != null) {
+        try {
+          var unitOfWork = new UnitOfWork(new bastelei_ws());
+          if(unitOfWork.Users.GetName(MailAdress) != Name) {
+            string encryptedPassword = Tools.EncryptPassword(MailAdress, Password);
+            unitOfWork.Users.AddUser(Name, Surname, MailAdress, encryptedPassword);
+          }
+          else {
 
+          }          
+          unitOfWork.Complete();
+        }
+        catch (Exception ex) {
+        }
+      }
     }
 
     #endregion //Methods

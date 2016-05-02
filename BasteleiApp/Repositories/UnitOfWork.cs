@@ -24,15 +24,21 @@ namespace BasteleiApp.Repositories {
 			get; private set;
 		}
 
-		#endregion //Properties
+    public IUserRepository Users
+    {
+      get; private set;
+    }
 
-		#region Constructors
+    #endregion //Properties
 
-		public UnitOfWork(bastelei_ws context) {
+    #region Constructors
+
+    public UnitOfWork(bastelei_ws context) {
 			_context = context;
 			Probes = new ProbeRepository(_context);
 			Measurements = new MeasurementRepository(_context);
-		}
+      Users = new UserRepository(_context);
+    }
 
 		#endregion //Constructors
 

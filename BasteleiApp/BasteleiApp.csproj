@@ -131,6 +131,7 @@
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Test\TestPasswordEncryption.cs" />
+    <Compile Include="Test\TestUserDataQueries.cs" />
     <Compile Include="Tools.cs" />
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Models\basteleiORM.Context.cs">

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 namespace BasteleiApp.Repositories {
   interface IUserRepository : IRepository<User>{
 
-    void RegisterUser(string name, string surname, string mail, string password);
+    void AddUser(string name, string surname, string mail, string password);
+    string GetPassword(string name);
+
+    string GetName(string mail);
   }
 }
