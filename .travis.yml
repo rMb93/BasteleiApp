@@ -1,0 +1,3 @@
+language: csharp
+solution: BasteleiApp.sln 
+script: xbuild /p:Configuration=Release BasteleiApp.sln /p:TargetFrameworkVersion="v4.5"
