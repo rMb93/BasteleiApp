@@ -89,12 +89,9 @@ namespace BasteleiApp.ViewModels {
           Information = "You are logged in.";
           _windowManager.ShowWindow(new MainViewModel());
         }
-        else {
-          Information = "Wrong mail adress or password";
-        }
       }
       catch (Exception ex) {
-        Information = "Could not connect to database.";
+        Information = "Wrong mail adress or password or no connection to database.";
       }
     }
 

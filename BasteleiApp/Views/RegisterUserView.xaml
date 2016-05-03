@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BasteleiApp.Views"
         mc:Ignorable="d"
-        Title="Register" Height="160.8" Width="300">
+        Title="Register" Height="400" Width="300">
     <Grid>
         <StackPanel>
             <Grid>
@@ -30,7 +30,7 @@
                 <Label Grid.Row="3" Grid.Column="0" Content="Password:"/>
                 <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <Button x:Name="Register" Grid.Row="4" Grid.Column="1" Content="Register"/>
-                <Label x:Name="Information" Grid.Row="5" Grid.Column="0" Content="{Binding Information}"/>
+                <Label x:Name="Information" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding Information}"/>
             </Grid>
         </StackPanel>
     </Grid>

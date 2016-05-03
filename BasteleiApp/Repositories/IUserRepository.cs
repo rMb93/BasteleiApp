@@ -9,8 +9,11 @@ namespace BasteleiApp.Repositories {
   interface IUserRepository : IRepository<User>{
 
     void AddUser(string name, string surname, string mail, string password);
+
     string GetPassword(string name);
 
     string GetName(string mail);
+
+    bool MailExists(string mail);
   }
 }

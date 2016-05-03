@@ -11,12 +11,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace BasteleiApp.Views {
   /// <summary>
   /// Interaktionslogik für LoginView.xaml
   /// </summary>
-  public partial class LoginView : UserControl {
+  public partial class LoginView : MetroWindow {
     public LoginView() {
       InitializeComponent();
     }

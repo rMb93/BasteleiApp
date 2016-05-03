@@ -103,14 +103,26 @@ namespace BasteleiApp.ViewModels {
 
     public void Register() {
       if(Name != null && Surname != null && MailAdress != null && Password != null) {
-        try {
-          var unitOfWork = new UnitOfWork(new bastelei_ws());
+        RegisterUser();
+      }
+      else {
+        Information = "Please fill out all text fields.";
+      }
+    }
+
+    private void RegisterUser() {
+      try {
+        var unitOfWork = new UnitOfWork(new bastelei_ws());
+        if (!unitOfWork.Users.MailExists(MailAdress)) {
           string encryptedPassword = Tools.EncryptPassword(MailAdress, Password);
           unitOfWork.Users.AddUser(Name, Surname, MailAdress, encryptedPassword);
           unitOfWork.Complete();
         }
-        catch (Exception ex) {
+        else {
+          Information = "Mail adress does already exist.";
         }
+      }
+      catch (Exception ex) {
       }
     }
 

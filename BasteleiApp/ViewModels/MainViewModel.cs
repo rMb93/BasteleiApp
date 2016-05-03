@@ -76,7 +76,7 @@ namespace BasteleiApp.ViewModels {
         _controlPanelVM = value;
         NotifyOfPropertyChange(() => ControlPanelVM);
       }
-    //}
+    }
 
     #endregion //Properties
 
