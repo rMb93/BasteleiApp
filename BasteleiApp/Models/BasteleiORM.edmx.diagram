@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a7e2f19a088d4953bd48d8ff9926bf41" Name="Diagram1">
-        <EntityTypeShape EntityType="Models.Measurement" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.Probe" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="Models.probes" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.Probe_ibfk_1" ManuallyRouted="false" />
+      <Diagram DiagramId="0a0b39e229b2433488dc6ea7bc235c61" Name="Diagram1">
+        <EntityTypeShape EntityType="BasteleiApp.Models.Measurement" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BasteleiApp.Models.Probe" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BasteleiApp.Models.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="BasteleiApp.Models.probes" ManuallyRouted="false" />
+        <AssociationConnector Association="BasteleiApp.Models.Probe_ibfk_1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

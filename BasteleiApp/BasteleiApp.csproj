@@ -128,13 +128,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="PasswordBoxHelper.cs" />
-    <Compile Include="Repositories\IUserRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="Test\TestPasswordEncryption.cs" />
-    <Compile Include="Test\TestUserDataQueries.cs" />
-    <Compile Include="Tools.cs" />
-    <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Models\basteleiORM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,6 +152,13 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>basteleiORM.tt</DependentUpon>
     </Compile>
+    <Compile Include="PasswordBoxHelper.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Test\TestPasswordEncryption.cs" />
+    <Compile Include="Test\TestUserDataQueries.cs" />
+    <Compile Include="Tools.cs" />
+    <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Repositories\IMeasurementRepository.cs" />
     <Compile Include="Repositories\IProbeRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -285,7 +285,6 @@
   <ItemGroup>
     <Resource Include="Icons\ic_launcher.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\basteleiORM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
