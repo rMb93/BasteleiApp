@@ -14,6 +14,23 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Stefan\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\Users\Stefan\Desktop\</InstallUrl>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +50,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>7C82D170C2F3C9A0B6D5C8ABF5625B0AE80CA246</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>BasteleiApp_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Caliburn.Micro, Version=2.0.2.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
@@ -87,9 +116,11 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WPFToolkit.DataVisualization.3.5.50211.1\lib\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
       <Private>True</Private>
@@ -128,29 +159,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\basteleiORM.Context.cs">
+    <Compile Include="Models\BasteleiORM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>basteleiORM.Context.tt</DependentUpon>
+      <DependentUpon>BasteleiORM.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\basteleiORM.cs">
+    <Compile Include="Models\BasteleiORM.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>basteleiORM.tt</DependentUpon>
+      <DependentUpon>BasteleiORM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\basteleiORM.Designer.cs">
+    <Compile Include="Models\BasteleiORM.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>basteleiORM.edmx</DependentUpon>
+      <DependentUpon>BasteleiORM.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Measurement.cs">
-      <DependentUpon>basteleiORM.tt</DependentUpon>
+      <DependentUpon>BasteleiORM.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Probe.cs">
-      <DependentUpon>basteleiORM.tt</DependentUpon>
+      <DependentUpon>BasteleiORM.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>basteleiORM.tt</DependentUpon>
+      <DependentUpon>BasteleiORM.tt</DependentUpon>
     </Compile>
     <Compile Include="PasswordBoxHelper.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
@@ -223,12 +254,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\basteleiORM.edmx">
+    <EntityDeploy Include="Models\BasteleiORM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>basteleiORM.Designer.cs</LastGenOutput>
+      <LastGenOutput>BasteleiORM.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\basteleiORM.edmx.diagram">
-      <DependentUpon>basteleiORM.edmx</DependentUpon>
+    <None Include="BasteleiApp_TemporaryKey.pfx" />
+    <None Include="Models\BasteleiORM.edmx.diagram">
+      <DependentUpon>BasteleiORM.edmx</DependentUpon>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -286,15 +318,27 @@
     <Resource Include="Icons\ic_launcher.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\basteleiORM.Context.tt">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\BasteleiORM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>basteleiORM.edmx</DependentUpon>
-      <LastGenOutput>basteleiORM.Context.cs</LastGenOutput>
+      <DependentUpon>BasteleiORM.edmx</DependentUpon>
+      <LastGenOutput>BasteleiORM.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\basteleiORM.tt">
+    <Content Include="Models\BasteleiORM.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>basteleiORM.edmx</DependentUpon>
-      <LastGenOutput>basteleiORM.cs</LastGenOutput>
+      <DependentUpon>BasteleiORM.edmx</DependentUpon>
+      <LastGenOutput>BasteleiORM.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
