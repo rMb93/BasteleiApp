@@ -128,17 +128,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\basteleiORM.Context.cs">
+    <Compile Include="Models\BasteleiORM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>basteleiORM.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\basteleiORM.cs">
+    <Compile Include="Models\BasteleiORM.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>basteleiORM.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\basteleiORM.Designer.cs">
+    <Compile Include="Models\BasteleiORM.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>basteleiORM.edmx</DependentUpon>
@@ -294,7 +294,7 @@
     <Content Include="Models\basteleiORM.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>basteleiORM.edmx</DependentUpon>
-      <LastGenOutput>basteleiORM.cs</LastGenOutput>
+      <LastGenOutput>BasteleiORM.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
