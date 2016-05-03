@@ -8,10 +8,10 @@ namespace BasteleiApp.Test {
   [TestFixture]
   class TestUserDataQueries {
 
-    private string _name = "Peter";
-    private string _surname = "Wackel";
-    private string _mail = "Peter@Wackel.com";
-    private string _password = "PeterWackelt123";
+    private string _name = "Paul";
+    private string _surname = "Wobbl";
+    private string _mail = "Peter@Wobbl.com";
+    private string _password = "test";
 
     private RegisterUserViewModel InstatiateRegisterUserVM() {
       RegisterUserViewModel registerUserVM = new RegisterUserViewModel();

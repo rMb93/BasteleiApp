@@ -16,6 +16,7 @@ namespace BasteleiApp.ViewModels {
     private string _surname;
     private string _mailAdress;
     private string _password;
+    private string _information;
 
     #endregion //Fields
 
@@ -77,6 +78,20 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
+    public string Information
+    {
+      get
+      {
+        return _information;
+      }
+
+      set
+      {
+        _information = value;
+        NotifyOfPropertyChange(() => Information);
+      }
+    }
+
     #endregion //Properties
 
     #region Constructors
@@ -90,13 +105,8 @@ namespace BasteleiApp.ViewModels {
       if(Name != null && Surname != null && MailAdress != null && Password != null) {
         try {
           var unitOfWork = new UnitOfWork(new bastelei_ws());
-          if(unitOfWork.Users.GetName(MailAdress) != Name) {
-            string encryptedPassword = Tools.EncryptPassword(MailAdress, Password);
-            unitOfWork.Users.AddUser(Name, Surname, MailAdress, encryptedPassword);
-          }
-          else {
-
-          }          
+          string encryptedPassword = Tools.EncryptPassword(MailAdress, Password);
+          unitOfWork.Users.AddUser(Name, Surname, MailAdress, encryptedPassword);
           unitOfWork.Complete();
         }
         catch (Exception ex) {

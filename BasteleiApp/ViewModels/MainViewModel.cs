@@ -9,18 +9,14 @@ using System.ComponentModel.Composition;
 using System.Windows.Controls;
 
 namespace BasteleiApp.ViewModels {
-  [Export(typeof(MainViewModel))]
   class MainViewModel : Screen {
 
     #region Fields
 
     private DataPresentationViewModel _dataPresentationVM;
     private ControlPanelViewModel _controlPanelVM;
-    private LoginViewModel _loginVM;
     private object _selectedItem;
     private string _windowTitle;
-    private readonly IWindowManager _windowManager;
-    private bool _controlPanelIsEnabled;
 
     #endregion //Fields
 
@@ -80,47 +76,16 @@ namespace BasteleiApp.ViewModels {
         _controlPanelVM = value;
         NotifyOfPropertyChange(() => ControlPanelVM);
       }
-    }
-
-    public LoginViewModel LoginVM
-    {
-      get
-      {
-        return _loginVM;
-      }
-
-      set
-      {
-        _loginVM = value;
-        NotifyOfPropertyChange(() => LoginVM);
-      }
-    }
-
-    public bool ControlPanelIsEnabled
-    {
-      get
-      {
-        return _controlPanelIsEnabled;
-      }
-
-      set
-      {
-        _controlPanelIsEnabled = value;
-        NotifyOfPropertyChange(() => ControlPanelIsEnabled);
-      }
-    }
+    //}
 
     #endregion //Properties
 
     #region Constructors
-
-    [ImportingConstructor]
-    public MainViewModel(IWindowManager windowManager) {
+    
+    public MainViewModel() {
       WindowTitle = "bastelei";
-      LoginVM = new LoginViewModel();
       DataPresentationVM = new DataPresentationViewModel();
       ControlPanelVM = new ControlPanelViewModel();
-      _windowManager = windowManager;
     }
 
     #endregion //Constructors

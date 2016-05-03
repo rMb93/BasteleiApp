@@ -8,6 +8,7 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using System.Linq;
+using System.Windows.Controls;
 
 namespace BasteleiApp {
   class AppBootstrapper : BootstrapperBase {
@@ -16,6 +17,10 @@ namespace BasteleiApp {
 
     public AppBootstrapper() {
       Initialize();
+      ConventionManager.AddElementConvention<PasswordBox>(
+            PasswordBoxHelper.BoundPasswordProperty,
+            "Password",
+            "PasswordChanged");
     }
 
     protected override void OnStartup(object sender, StartupEventArgs e) {
