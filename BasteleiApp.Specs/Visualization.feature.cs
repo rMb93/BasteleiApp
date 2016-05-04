@@ -9,7 +9,7 @@
 //      the code is regenerated.
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-#region Designer generated code
+/*#region Designer generated code
 #pragma warning disable
 namespace BasteleiApp.Features
 {
@@ -228,3 +228,4 @@ this.ScenarioSetup(scenarioInfo);
 }
 #pragma warning restore
 #endregion
+*/

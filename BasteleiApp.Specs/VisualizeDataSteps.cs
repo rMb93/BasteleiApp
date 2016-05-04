@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using TechTalk.SpecFlow;
 using TestStack.White;
 using TestStack.White.UIItems;
@@ -107,4 +107,4 @@ namespace BasteleiApp.Step_definitions
             System.Threading.Thread.Sleep(1000);
         }
     }
-}
+}*/
