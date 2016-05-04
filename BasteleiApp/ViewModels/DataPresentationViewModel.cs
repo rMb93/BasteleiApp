@@ -216,7 +216,8 @@ namespace BasteleiApp.ViewModels {
                                           fromTime, "airpressure", _timeIntervalInMinutes)));
       }
       catch (Exception ex) {
-        ;
+                Exception blub;
+                blub = ex;
       }
       ProgessRingIsActive = false;
     }
