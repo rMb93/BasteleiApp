@@ -1,6 +1,6 @@
 ﻿using System;
 using BasteleiApp.ViewModels;
-using NUnit.Framework;  
+using NUnit.Framework;
 
 namespace Tests {
   [TestFixture]
