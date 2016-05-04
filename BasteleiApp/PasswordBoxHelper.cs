@@ -9,6 +9,7 @@ using System.Windows.Controls;
 
 namespace BasteleiApp {
   public static class PasswordBoxHelper {
+
     public static readonly DependencyProperty BoundPasswordProperty =
         DependencyProperty.RegisterAttached("BoundPassword",
             typeof(string),
@@ -18,8 +19,6 @@ namespace BasteleiApp {
     public static string GetBoundPassword(DependencyObject d) {
       var box = d as PasswordBox;
       if (box != null) {
-        // this funny little dance here ensures that we've hooked the
-        // PasswordChanged event once, and only once.
         box.PasswordChanged -= PasswordChanged;
         box.PasswordChanged += PasswordChanged;
       }
