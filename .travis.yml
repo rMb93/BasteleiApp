@@ -1,7 +1,6 @@
 language: csharp
 solution: BasteleiApp.sln 
-install: 
-        -nuget restore 
+install:
         -nuget install WPFToolkit -Version 3.5.40128.1
 
 script: xbuild /p:Configuration=Release BasteleiApp.sln /p:TargetFrameworkVersion="v4.5"
