@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 
 namespace BasteleiApp.Repositories {
-  class ProbeRepository : Repository<Probe>, IProbeRepository {
+  public class ProbeRepository : Repository<Probe>, IProbeRepository {
 
     #region Fields
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 
 namespace BasteleiApp.Repositories {
-  class UserRepository : Repository<User>, IUserRepository {
+  public class UserRepository : Repository<User>, IUserRepository {
 
     public bastelei_ws BasteleiContext
     {

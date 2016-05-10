@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BasteleiApp.Repositories {
-	interface IRepository<TEntity> where TEntity : class {
+	public interface IRepository<TEntity> where TEntity : class {
 
 		TEntity Get(int id);
 		IEnumerable<TEntity> GetAll();

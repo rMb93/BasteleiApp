@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BasteleiApp.Repositories {
-  interface IUserRepository : IRepository<User>{
+  public interface IUserRepository : IRepository<User>{
 
     void AddUser(string name, string surname, string mail, string password);
 

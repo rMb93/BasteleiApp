@@ -8,7 +8,7 @@ using BasteleiApp.Repositories;
 using BasteleiApp.Models;
 
 namespace BasteleiApp.ViewModels {
-  class RegisterUserViewModel : Screen {
+  public class RegisterUserViewModel : Screen {
 
     #region Fields
 

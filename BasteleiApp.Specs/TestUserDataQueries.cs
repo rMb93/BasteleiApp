@@ -3,6 +3,7 @@ using BasteleiApp.ViewModels;
 using NUnit.Framework;
 using BasteleiApp.Repositories;
 using BasteleiApp.Models;
+using Caliburn.Micro;
 
 namespace BasteleiApp.Test {
   [TestFixture]
