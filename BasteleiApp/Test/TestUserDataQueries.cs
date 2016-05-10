@@ -18,7 +18,7 @@ namespace BasteleiApp.Test {
       registerUserVM.Name = _name;
       registerUserVM.Surname = _surname;
       registerUserVM.MailAdress = _mail;
-      registerUserVM.Password = _password;
+      registerUserVM.PasswordOne = _password;
       return registerUserVM;
     }
 

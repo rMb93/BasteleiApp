@@ -17,6 +17,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width=".5*"/>
@@ -29,9 +30,11 @@
                 <Label Grid.Row="2" Grid.Column="0" Content="Email-Adress:"/>
                 <TextBox x:Name="MailAdress" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
                 <Label Grid.Row="3" Grid.Column="0" Content="Password:"/>
-                <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
-                <Button x:Name="Register" Grid.Row="4" Grid.Column="1" Content="Register"/>
-                <Label x:Name="Information" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding Information}"/>
+                <PasswordBox x:Name="PasswordOne" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <Label Grid.Row="4" Grid.Column="0" Content="Wiederholung:"/>
+                <PasswordBox x:Name="PasswordTwo" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
+                <Button x:Name="Register" Grid.Row="5" Grid.Column="1" Content="Register"/>
+                <Label x:Name="Information" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding Information}"/>
             </Grid>
         </StackPanel>
     </Grid>

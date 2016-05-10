@@ -79,6 +79,7 @@ namespace BasteleiApp.ViewModels {
         if (Tools.PasswordsMatch(password, passwordToTest)) {
           Information = "You are logged in.";
           _windowManager.ShowWindow(new MainViewModel());
+          TryClose();
         }
       }
       catch (Exception ex) {

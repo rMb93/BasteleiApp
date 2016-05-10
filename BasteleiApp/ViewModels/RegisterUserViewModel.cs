@@ -15,7 +15,8 @@ namespace BasteleiApp.ViewModels {
     private string _name;
     private string _surname;
     private string _mailAdress;
-    private string _password;
+    private string _passwordOne;
+    private string _passwordTwo;
     private string _information;
 
     #endregion //Fields
@@ -55,14 +56,25 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
-    public string Password {
+    public string PasswordOne {
       get {
-        return _password;
+        return _passwordOne;
       }
 
       set {
-        _password = value;
-        NotifyOfPropertyChange(() => Password);
+        _passwordOne = value;
+        NotifyOfPropertyChange(() => PasswordOne);
+      }
+    }
+
+    public string PasswordTwo {
+      get {
+        return _passwordTwo;
+      }
+
+      set {
+        _passwordTwo = value;
+        NotifyOfPropertyChange(() => PasswordTwo);
       }
     }
 
@@ -81,13 +93,20 @@ namespace BasteleiApp.ViewModels {
 
     #region Constructors
 
+    public RegisterUserViewModel() {
+      DisplayName = "Register";
+    }
 
     #endregion //Constructors
 
     #region Methods
 
     public void Register() {
-      if (Name != null && Surname != null && MailAdress != null && Password != null) {
+      if (Name != null &&
+        Surname != null &&
+        MailAdress != null &&
+        PasswordOne != null &&
+        PasswordTwo != null) {
         RegisterUser();
       }
       else {
@@ -96,12 +115,17 @@ namespace BasteleiApp.ViewModels {
     }
 
     private void RegisterUser() {
+      if(PasswordOne != PasswordTwo) {
+        Information = "Your passwords don't match.";
+        return;
+      }
       try {
         var unitOfWork = new UnitOfWork(new bastelei_ws());
         if (!unitOfWork.Users.MailExists(MailAdress)) {
-          string encryptedPassword = Tools.EncryptPassword(MailAdress, Password);
+          string encryptedPassword = Tools.EncryptPassword(MailAdress, PasswordOne);
           unitOfWork.Users.AddUser(Name, Surname, MailAdress, encryptedPassword);
           unitOfWork.Complete();
+          TryClose();
         }
         else {
           Information = "Mail adress does already exist.";
