@@ -16,57 +16,45 @@ namespace BasteleiApp.ViewModels {
 
     #region Properties
 
-    public string WindowTitle
-    {
-      get
-      {
+    public string WindowTitle {
+      get {
         return _windowTitle;
       }
 
-      set
-      {
+      set {
         _windowTitle = value;
         NotifyOfPropertyChange(() => WindowTitle);
       }
     }
 
-    public object SelectedItem
-    {
-      get
-      {
+    public object SelectedItem {
+      get {
         return _selectedItem;
       }
 
-      set
-      {
+      set {
         _selectedItem = value;
         NotifyOfPropertyChange(() => SelectedItem);
       }
     }
 
-    public DataPresentationViewModel DataPresentationVM
-    {
-      get
-      {
+    public DataPresentationViewModel DataPresentationVM {
+      get {
         return _dataPresentationVM;
       }
 
-      set
-      {
+      set {
         _dataPresentationVM = value;
         NotifyOfPropertyChange(() => DataPresentationVM);
       }
     }
 
-    public ControlPanelViewModel ControlPanelVM
-    {
-      get
-      {
+    public ControlPanelViewModel ControlPanelVM {
+      get {
         return _controlPanelVM;
       }
 
-      set
-      {
+      set {
         _controlPanelVM = value;
         NotifyOfPropertyChange(() => ControlPanelVM);
       }
@@ -75,7 +63,7 @@ namespace BasteleiApp.ViewModels {
     #endregion //Properties
 
     #region Constructors
-    
+
     public MainViewModel() {
       WindowTitle = "bastelei";
       DataPresentationVM = new DataPresentationViewModel();

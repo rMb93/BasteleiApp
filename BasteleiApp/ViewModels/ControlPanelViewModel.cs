@@ -1,30 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 
 namespace BasteleiApp.ViewModels {
   public class ControlPanelViewModel : Screen {
 
     #region Fields
-    
+
     private BindableCollection<object> _options;
 
     #endregion //Fields
 
     #region Properties
 
-    public BindableCollection<object> Options
-    {
-      get
-      {
+    public BindableCollection<object> Options {
+      get {
         return _options;
       }
 
-      set
-      {
+      set {
         _options = value;
       }
     }

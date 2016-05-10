@@ -16,15 +16,12 @@ namespace BasteleiApp.ViewModels {
 
     #region Properties
 
-    public string LocationBtn
-    {
-      get
-      {
+    public string LocationBtn {
+      get {
         return _locationBtn;
       }
 
-      set
-      {
+      set {
         _locationBtn = value;
         NotifyOfPropertyChange(() => LocationBtn);
       }

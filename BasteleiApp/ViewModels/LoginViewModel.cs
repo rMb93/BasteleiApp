@@ -23,43 +23,34 @@ namespace BasteleiApp.ViewModels {
 
     #region Properties
 
-    public string MailAdress
-    {
-      get
-      {
+    public string MailAdress {
+      get {
         return _mailAdress;
       }
 
-      set
-      {
+      set {
         _mailAdress = value;
         NotifyOfPropertyChange(() => MailAdress);
       }
     }
 
-    public string Password
-    {
-      get
-      {
+    public string Password {
+      get {
         return _password;
       }
 
-      set
-      {
+      set {
         _password = value;
         NotifyOfPropertyChange(() => Password);
       }
     }
 
-    public string Information
-    {
-      get
-      {
+    public string Information {
+      get {
         return _information;
       }
 
-      set
-      {
+      set {
         _information = value;
         NotifyOfPropertyChange(() => Information);
       }

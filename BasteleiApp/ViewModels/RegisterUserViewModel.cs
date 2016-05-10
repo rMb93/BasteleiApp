@@ -8,7 +8,7 @@ using BasteleiApp.Repositories;
 using BasteleiApp.Models;
 
 namespace BasteleiApp.ViewModels {
-  class RegisterUserViewModel : Screen{
+  class RegisterUserViewModel : Screen {
 
     #region Fields
 
@@ -22,71 +22,56 @@ namespace BasteleiApp.ViewModels {
 
     #region Properties
 
-    public string Name
-    {
-      get
-      {
+    public string Name {
+      get {
         return _name;
       }
 
-      set
-      {
+      set {
         _name = value;
         NotifyOfPropertyChange(() => Name);
       }
     }
 
-    public string Surname
-    {
-      get
-      {
+    public string Surname {
+      get {
         return _surname;
       }
 
-      set
-      {
+      set {
         _surname = value;
         NotifyOfPropertyChange(() => Surname);
       }
     }
 
-    public string MailAdress
-    {
-      get
-      {
+    public string MailAdress {
+      get {
         return _mailAdress;
       }
 
-      set
-      {
+      set {
         _mailAdress = value;
         NotifyOfPropertyChange(() => MailAdress);
       }
     }
 
-    public string Password
-    {
-      get
-      {
+    public string Password {
+      get {
         return _password;
       }
 
-      set
-      {
+      set {
         _password = value;
         NotifyOfPropertyChange(() => Password);
       }
     }
 
-    public string Information
-    {
-      get
-      {
+    public string Information {
+      get {
         return _information;
       }
 
-      set
-      {
+      set {
         _information = value;
         NotifyOfPropertyChange(() => Information);
       }
@@ -102,7 +87,7 @@ namespace BasteleiApp.ViewModels {
     #region Methods
 
     public void Register() {
-      if(Name != null && Surname != null && MailAdress != null && Password != null) {
+      if (Name != null && Surname != null && MailAdress != null && Password != null) {
         RegisterUser();
       }
       else {

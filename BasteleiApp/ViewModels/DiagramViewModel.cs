@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Caliburn.Micro;
 
 namespace BasteleiApp.ViewModels {
@@ -17,29 +14,23 @@ namespace BasteleiApp.ViewModels {
 
     #region Properties    
 
-    public List<KeyValuePair<DateTime, double?>> WeatherData
-    {
-      get
-      {
+    public List<KeyValuePair<DateTime, double?>> WeatherData {
+      get {
         return _weatherData;
       }
 
-      set
-      {
+      set {
         _weatherData = value;
         NotifyOfPropertyChange(() => WeatherData);
       }
     }
 
-    public string Title
-    {
-      get
-      {
+    public string Title {
+      get {
         return _title;
       }
 
-      set
-      {
+      set {
         _title = value;
         NotifyOfPropertyChange(() => Title);
       }

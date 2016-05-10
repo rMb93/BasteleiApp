@@ -28,10 +28,6 @@ namespace BasteleiApp.ViewModels {
 
     #region Properties
 
-    public bool CanRefresh {
-      get { return true; }
-    }
-
     public BindableCollection<DiagramViewModel> Diagrams {
       get {
         return _diagrams;
@@ -42,7 +38,7 @@ namespace BasteleiApp.ViewModels {
         NotifyOfPropertyChange(() => Diagrams);
       }
     }
-    
+
     public BindableCollection<LocationViewModel> Locations {
       get {
         return _locations;
@@ -148,7 +144,7 @@ namespace BasteleiApp.ViewModels {
 
     public DataPresentationViewModel() {
       DisplayName = "Presentation";
-      RefreshBtnContent = "Refresh";     
+      RefreshBtnContent = "Refresh";
       Diagrams = new BindableCollection<DiagramViewModel>();
       LocationsLbl = "Locations:";
       Locations = new BindableCollection<LocationViewModel>();
@@ -216,8 +212,8 @@ namespace BasteleiApp.ViewModels {
                                           fromTime, "airpressure", _timeIntervalInMinutes)));
       }
       catch (Exception ex) {
-                Exception blub;
-                blub = ex;
+        Exception blub;
+        blub = ex;
       }
       ProgessRingIsActive = false;
     }
