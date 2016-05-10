@@ -64,10 +64,10 @@ namespace BasteleiApp.ViewModels {
 
     #region Constructors
 
-    public MainViewModel() {
+    public MainViewModel(string userAdress) {
       WindowTitle = "bastelei";
       DataPresentationVM = new DataPresentationViewModel();
-      ControlPanelVM = new ControlPanelViewModel();
+      ControlPanelVM = new ControlPanelViewModel(userAdress);
     }
 
     #endregion //Constructors

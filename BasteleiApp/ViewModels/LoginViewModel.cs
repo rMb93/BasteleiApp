@@ -63,7 +63,6 @@ namespace BasteleiApp.ViewModels {
     [ImportingConstructor]
     public LoginViewModel(IWindowManager windowManager) {
       DisplayName = "Login";
-      Information = "Login if you want to use the control panel";
       _windowManager = windowManager;
     }
 
@@ -78,7 +77,7 @@ namespace BasteleiApp.ViewModels {
         string passwordToTest = Tools.EncryptPassword(MailAdress, Password);
         if (Tools.PasswordsMatch(password, passwordToTest)) {
           Information = "You are logged in.";
-          _windowManager.ShowWindow(new MainViewModel());
+          _windowManager.ShowWindow(new MainViewModel(MailAdress));
           TryClose();
         }
       }

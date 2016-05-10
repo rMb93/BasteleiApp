@@ -184,6 +184,7 @@
       <DependentUpon>BasteleiORM.tt</DependentUpon>
     </Compile>
     <Compile Include="PasswordBoxHelper.cs" />
+    <Compile Include="Priviledge.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Test\TestPasswordEncryption.cs" />
@@ -206,6 +207,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterProbeViewModel.cs" />
     <Compile Include="ViewModels\RegisterUserViewModel.cs" />
+    <Compile Include="ViewModels\VerifyProbeViewModel.cs" />
     <Compile Include="Views\ControlPanelView.xaml.cs">
       <DependentUpon>ControlPanelView.xaml</DependentUpon>
     </Compile>
@@ -234,6 +236,9 @@
     </Compile>
     <Compile Include="Views\RegisterUserView.xaml.cs">
       <DependentUpon>RegisterUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VerifyProbeView.xaml.cs">
+      <DependentUpon>VerifyProbeView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -310,6 +315,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\RegisterUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VerifyProbeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

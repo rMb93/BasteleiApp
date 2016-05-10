@@ -43,7 +43,14 @@ namespace BasteleiApp.Repositories {
       var query = from u in BasteleiContext.User
                   where u.mailadress == mail
                   select u.name;
-      return query.First<string>();
+      return query.First();
+    }
+    
+    public int GetUserRights(string mail) {
+      var query = from u in BasteleiContext.User
+                  where u.mailadress == mail
+                  select u.privilege;
+      return query.First();
     }
 
     public bool MailExists(string mail) {
@@ -55,5 +62,6 @@ namespace BasteleiApp.Repositories {
       }
       return false;
     }
+
   }
 }
