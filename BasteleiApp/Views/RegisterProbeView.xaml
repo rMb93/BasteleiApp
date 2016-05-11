@@ -26,7 +26,9 @@
         <Label Grid.Row="2" Content="Comment: " />
         <TextBox Grid.Row="2" Grid.Column="1" AcceptsReturn="True" Margin="0,0,0,10"/>
         <Label Grid.Row="3" Content="Location: " />
-        <m:Map Grid.Row="3" Grid.Column="1" CredentialsProvider="JeX7JUW6AsfUpSNHWWNS~fyk1gvyoiVc8YKwU5vUx4Q~AsUw38jLjpvt4xX-sXuXu7fgNkL2S1QtykJj1GXNl3exZLlxY6BcCbTkmXmevcg3" Center="49.001235, 8.404393" ZoomLevel="14"/>
+        <m:Map Grid.Row="3" Grid.Column="1" 
+               CredentialsProvider="JeX7JUW6AsfUpSNHWWNS~fyk1gvyoiVc8YKwU5vUx4Q~AsUw38jLjpvt4xX-sXuXu7fgNkL2S1QtykJj1GXNl3exZLlxY6BcCbTkmXmevcg3"
+               Center="49.001235, 8.404393" ZoomLevel="14"/>
         <WrapPanel Grid.Row="4" Grid.Column="1">
             <Button Content="Submit"/>
         </WrapPanel>        
