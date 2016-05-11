@@ -76,12 +76,12 @@
       <HintPath>..\packages\Caliburn.Micro.3.0.1\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Devart.Data, Version=5.0.1431.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
-      <HintPath>..\packages\dotConnect.Express.for.MySQL.8.5.639\lib\Devart.Data.dll</HintPath>
+    <Reference Include="Devart.Data, Version=5.0.1436.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotConnect.Express.for.MySQL.8.5.644\lib\Devart.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Devart.Data.MySql, Version=8.5.639.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
-      <HintPath>..\packages\dotConnect.Express.for.MySQL.8.5.639\lib\Devart.Data.MySql.dll</HintPath>
+    <Reference Include="Devart.Data.MySql, Version=8.5.644.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotConnect.Express.for.MySQL.8.5.644\lib\Devart.Data.MySql.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
