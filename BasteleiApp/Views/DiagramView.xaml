@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BasteleiApp.Views"
-             xmlns:chartingToolkit=
-	         "clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+             xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
              mc:Ignorable="d" >
     <Grid Width="800" Height="300" HorizontalAlignment="Stretch">
         <DockPanel HorizontalAlignment="Stretch">

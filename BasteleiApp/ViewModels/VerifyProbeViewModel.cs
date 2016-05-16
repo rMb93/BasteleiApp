@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BasteleiApp.ViewModels {
-  class VerifyProbeViewModel : Screen{
+  public class VerifyProbeViewModel : Screen{
 
     #region Fields
 

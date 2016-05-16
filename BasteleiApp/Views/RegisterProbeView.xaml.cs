@@ -1,4 +1,13 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Globalization;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Microsoft.Maps.MapControl.WPF;
+using Microsoft.Maps.MapControl.WPF.Design;
+
 
 namespace BasteleiApp.Views {
   /// <summary>
@@ -7,6 +16,24 @@ namespace BasteleiApp.Views {
   public partial class RegisterProbeView : UserControl {
     public RegisterProbeView() {
       InitializeComponent();
+    }
+
+    public void PlacePushpin(object sender, MouseButtonEventArgs e) {
+
+      if(ProbeMap.Children.Count != 0) {
+        ProbeMap.Children.Clear();
+      }
+      // Disables the default mouse double-click action.
+      e.Handled = true;
+
+      // Determin the location to place the pushpin at on the map.
+
+      //Get the mouse click coordinates
+      Point mousePosition = e.GetPosition(ProbeMap);
+      //Convert the mouse coordinates to a locatoin on the map
+      Location pinLocation = ProbeMap.ViewportPointToLocation(mousePosition);
+
+      Pushpin.Location = pinLocation;
     }
   }
 }

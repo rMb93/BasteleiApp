@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BasteleiApp.Repositories {
-	class UnitOfWork : IUnitOfWork {
+	public class UnitOfWork : IUnitOfWork {
 
 		#region Fields
 

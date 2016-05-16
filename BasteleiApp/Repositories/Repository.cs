@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BasteleiApp.Repositories {
-	class Repository<TEntity> : IRepository<TEntity> where TEntity : class {
+	public class Repository<TEntity> : IRepository<TEntity> where TEntity : class {
 
 		#region Fields
 

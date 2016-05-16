@@ -8,10 +8,10 @@ namespace BasteleiApp.Test {
   [TestFixture]
   class TestUserDataQueries {
 
-    private string _name = "Paul";
-    private string _surname = "Wobbl";
-    private string _mail = "Peter@Wobbl.com";
-    private string _password = "test";
+    private string _name = "test";
+    private string _surname = "tester";
+    private string _mail = "test@tester.com";
+    private string _password = "tester";
 
     private RegisterUserViewModel InstatiateRegisterUserVM() {
       RegisterUserViewModel registerUserVM = new RegisterUserViewModel();
@@ -24,8 +24,6 @@ namespace BasteleiApp.Test {
 
     [Test]
     public void CheckGetUserName() {
-      RegisterUserViewModel registerUserVM = InstatiateRegisterUserVM();
-      registerUserVM.Register();
 
       var unitOfWork = new UnitOfWork(new bastelei_ws());
       string name = unitOfWork.Users.GetName(_mail);
@@ -35,13 +33,11 @@ namespace BasteleiApp.Test {
 
     [Test]
     public void CheckGetPassword() {
-      RegisterUserViewModel registerUserVM = InstatiateRegisterUserVM();
-      registerUserVM.Register();
 
       var unitOfWork = new UnitOfWork(new bastelei_ws());
       string psw = unitOfWork.Users.GetPassword(_mail);
 
-      Assert.AreEqual(psw, _password);
+      Assert.AreEqual(psw, Tools.EncryptPassword(_mail,_password));
     }
   }
 }

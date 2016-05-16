@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BasteleiApp.Repositories {
-	interface IUnitOfWork : IDisposable{
+	public interface IUnitOfWork : IDisposable{
 		IProbeRepository Probes { get; }
 		IMeasurementRepository Measurements { get; }
 		int Complete();

@@ -64,24 +64,24 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Caliburn.Micro, Version=2.0.2.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Caliburn.Micro.Core.3.0.0\lib\net45\Caliburn.Micro.dll</HintPath>
+    <Reference Include="Caliburn.Micro, Version=3.0.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.Core.3.0.1\lib\net45\Caliburn.Micro.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Caliburn.Micro.Platform, Version=2.0.2.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Caliburn.Micro.3.0.0\lib\net45\Caliburn.Micro.Platform.dll</HintPath>
+    <Reference Include="Caliburn.Micro.Platform, Version=3.0.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.0.1\lib\net45\Caliburn.Micro.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Caliburn.Micro.Platform.Core, Version=2.0.2.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Caliburn.Micro.3.0.0\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
+    <Reference Include="Caliburn.Micro.Platform.Core, Version=3.0.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.0.1\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Devart.Data, Version=5.0.1408.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
-      <HintPath>..\packages\dotConnect.Express.for.MySQL.8.4.616\lib\Devart.Data.dll</HintPath>
+    <Reference Include="Devart.Data, Version=5.0.1436.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotConnect.Express.for.MySQL.8.5.644\lib\Devart.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Devart.Data.MySql, Version=8.4.616.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
-      <HintPath>..\packages\dotConnect.Express.for.MySQL.8.4.616\lib\Devart.Data.MySql.dll</HintPath>
+    <Reference Include="Devart.Data.MySql, Version=8.5.644.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotConnect.Express.for.MySQL.8.5.644\lib\Devart.Data.MySql.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -108,10 +108,6 @@
       <HintPath>..\packages\MySql.Data.Entity.6.9.8\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=3.2.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.2.1\lib\net45\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -134,7 +130,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\Caliburn.Micro.3.0.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
@@ -187,8 +183,6 @@
     <Compile Include="Priviledge.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="Test\TestPasswordEncryption.cs" />
-    <Compile Include="Test\TestUserDataQueries.cs" />
     <Compile Include="Tools.cs" />
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Repositories\IMeasurementRepository.cs" />
@@ -199,7 +193,6 @@
     <Compile Include="Repositories\ProbeRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
-    <Compile Include="Test\TestWeatherDataQueries.cs" />
     <Compile Include="ViewModels\ControlPanelViewModel.cs" />
     <Compile Include="ViewModels\DataPresentationViewModel.cs" />
     <Compile Include="ViewModels\DiagramViewModel.cs" />
