@@ -155,6 +155,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Timespan\DayTimespan.cs" />
+    <Compile Include="Timespan\HourTimespan.cs" />
+    <Compile Include="Timespan\ITimespan.cs" />
     <Compile Include="Models\BasteleiORM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,6 +186,10 @@
     <Compile Include="Priviledge.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Timespan\MonthTimespan.cs" />
+    <Compile Include="Timespan\TimespanFactory.cs" />
+    <Compile Include="Timespan\WeekTimespan.cs" />
+    <Compile Include="Timespan\YearTimespan.cs" />
     <Compile Include="Tools.cs" />
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Repositories\IMeasurementRepository.cs" />

@@ -26,7 +26,7 @@ namespace BasteleiApp.Repositories {
                       m.probe_id == probeID &&
                       m.datatype == dataType
                   select new { m.time, m.value });
-
+      
       List<KeyValuePair<DateTime, double?>> keyValPairs = new List<KeyValuePair<DateTime, double?>>();
       DateTime tempTime = fromTime;
       foreach (var q in query) {

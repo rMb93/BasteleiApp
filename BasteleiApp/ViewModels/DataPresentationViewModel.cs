@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 using BasteleiApp.Models;
 using BasteleiApp.Repositories;
+using BasteleiApp.Timespan;
 
 namespace BasteleiApp.ViewModels {
   public class DataPresentationViewModel : Screen {
@@ -20,7 +21,6 @@ namespace BasteleiApp.ViewModels {
     private string _timeSpanLbl;
     private BindableCollection<string> _timeSpans;
     private string _selectedTimeSpan;
-    private int _timeIntervalInMinutes;
     private LocationViewModel _selectedLocation;
     private bool _progessRingIsActive = false;
 
@@ -175,41 +175,21 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
-    private DateTime GetFromTime() {
-      switch (SelectedTimeSpan) {
-        case "Year":
-          _timeIntervalInMinutes = 43200;
-          return DateTime.Now.Subtract(TimeSpan.FromDays(365));
-        case "Month":
-          _timeIntervalInMinutes = 1440;
-          return DateTime.Now.Subtract(TimeSpan.FromDays(30));
-        case "Week":
-          _timeIntervalInMinutes = 360;
-          return DateTime.Now.Subtract(TimeSpan.FromDays(7));
-        case "Day":
-          _timeIntervalInMinutes = 60;
-          return DateTime.Now.Subtract(TimeSpan.FromDays(1));
-        case "Hour":
-          _timeIntervalInMinutes = 5;
-          return DateTime.Now.Subtract(TimeSpan.FromHours(1));
-        default:
-          return DateTime.Now;
-      }
-    }
-
     public void RefreshData() {
       ProgessRingIsActive = true;
-      DateTime fromTime = GetFromTime();
+      ITimespan timespan = new TimespanFactory().GetTimespanObject(SelectedTimeSpan);
+      int timeIntervalInMinutes = timespan.CalculateTimespan();
+      DateTime fromTime = timespan.CalculateFromTime();
       Diagrams.Clear();
       try {
         var unitOfWork = new UnitOfWork(new bastelei_ws());
         var probeID = unitOfWork.Probes.GetProbeIDByName(SelectedLocation.LocationBtn);
         Diagrams.Add(new DiagramViewModel("humidity", unitOfWork.Measurements.GetDateValuePairs(probeID,
-                                          fromTime, "humidity", _timeIntervalInMinutes)));
+                                          fromTime, "humidity", timeIntervalInMinutes)));
         Diagrams.Add(new DiagramViewModel("temperature", unitOfWork.Measurements.GetDateValuePairs(probeID,
-                                          fromTime, "temperature", _timeIntervalInMinutes)));
+                                          fromTime, "temperature", timeIntervalInMinutes)));
         Diagrams.Add(new DiagramViewModel("pressure", unitOfWork.Measurements.GetDateValuePairs(probeID,
-                                          fromTime, "airpressure", _timeIntervalInMinutes)));
+                                          fromTime, "airpressure", timeIntervalInMinutes)));
       }
       catch (Exception ex) {
         Exception blub;
