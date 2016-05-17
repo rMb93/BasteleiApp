@@ -9,7 +9,6 @@ namespace BasteleiApp.Timespan {
     public DateTime CalculateFromTime() {
       return DateTime.Now.Subtract(TimeSpan.FromDays(1));
     }
-
     public int CalculateTimespan() {
       return 60;
     }

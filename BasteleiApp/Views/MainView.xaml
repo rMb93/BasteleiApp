@@ -18,8 +18,11 @@
         <TabItem Header="Presentation">
             <ContentControl x:Name="DataPresentationVM"/>
         </TabItem>
-        <TabItem Header="Control" IsEnabled="{Binding ControlPanelIsEnabled}">
-            <ContentControl x:Name="ControlPanelVM"/>
-        </TabItem>        
+        <TabItem Header="Register Probe">
+            <ContentControl x:Name="RegisterProbeVM"/>
+        </TabItem>
+        <TabItem Header="Verify Probe" IsEnabled="{Binding VerifyProbeIsEnabled}">
+            <ContentControl x:Name="VerifyProbeVM"/>
+        </TabItem>
     </TabControl>
 </Controls:MetroWindow>

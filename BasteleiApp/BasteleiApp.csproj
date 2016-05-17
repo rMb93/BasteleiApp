@@ -200,7 +200,6 @@
     <Compile Include="Repositories\ProbeRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
-    <Compile Include="ViewModels\ControlPanelViewModel.cs" />
     <Compile Include="ViewModels\DataPresentationViewModel.cs" />
     <Compile Include="ViewModels\DiagramViewModel.cs" />
     <Compile Include="ViewModels\LocationViewModel.cs" />
@@ -208,9 +207,6 @@
     <Compile Include="ViewModels\RegisterProbeViewModel.cs" />
     <Compile Include="ViewModels\RegisterUserViewModel.cs" />
     <Compile Include="ViewModels\VerifyProbeViewModel.cs" />
-    <Compile Include="Views\ControlPanelView.xaml.cs">
-      <DependentUpon>ControlPanelView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\DataPresentationView.xaml.cs">
       <DependentUpon>DataPresentationView.xaml</DependentUpon>
     </Compile>
@@ -286,10 +282,6 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\ControlPanelView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\DataPresentationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
