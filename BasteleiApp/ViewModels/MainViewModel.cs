@@ -120,16 +120,6 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
-    public void TabSelectionChanged(SelectionChangedEventArgs e) {
-      {
-        var test = e.Source;
-        if (SelectedItem.GetType() == typeof(ControlPanelViewModel)) {
-        }
-        if (SelectedItem.GetType() == typeof(DataPresentationViewModel)) {
-        }
-      }
-    }
-
     #endregion //Methods
 
   }
