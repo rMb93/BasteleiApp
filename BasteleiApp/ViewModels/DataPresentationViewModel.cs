@@ -169,6 +169,7 @@ namespace BasteleiApp.ViewModels {
         foreach (var name in locNames) {
           Locations.Add(new LocationViewModel(name));
         }
+        unitOfWork.Complete();
       }
       catch (Exception ex) {
         throw new SystemException("Couldn't connect to DB", ex);
