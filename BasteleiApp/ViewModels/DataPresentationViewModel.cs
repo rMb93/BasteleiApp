@@ -23,6 +23,7 @@ namespace BasteleiApp.ViewModels {
     private string _selectedTimeSpan;
     private LocationViewModel _selectedLocation;
     private bool _progessRingIsActive = false;
+    private Task _getDataTask;
 
     #endregion //Fields
 
@@ -177,6 +178,11 @@ namespace BasteleiApp.ViewModels {
     }
 
     public void RefreshData() {
+      _getDataTask = new Task(RefreshDataTask);
+      _getDataTask.Start();
+    }
+
+    private void RefreshDataTask() {
       ProgessRingIsActive = true;
       ITimespan timespan = new TimespanFactory().GetTimespanObject(SelectedTimeSpan);
       int timeIntervalInMinutes = timespan.CalculateTimespan();
