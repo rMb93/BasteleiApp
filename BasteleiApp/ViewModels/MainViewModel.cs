@@ -1,5 +1,8 @@
 ﻿
+using BasteleiApp.Models;
+using BasteleiApp.Repositories;
 using Caliburn.Micro;
+using System;
 using System.Windows.Controls;
 
 namespace BasteleiApp.ViewModels {
@@ -8,7 +11,9 @@ namespace BasteleiApp.ViewModels {
     #region Fields
 
     private DataPresentationViewModel _dataPresentationVM;
-    private ControlPanelViewModel _controlPanelVM;
+    private RegisterProbeViewModel _registerProbeVM;
+    private VerifyProbeViewModel _verifyProbeVM;
+    private bool _verifyProbeIsEnabled;
     private object _selectedItem;
     private string _windowTitle;
 
@@ -49,14 +54,36 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
-    public ControlPanelViewModel ControlPanelVM {
+    public RegisterProbeViewModel RegisterProbeVM {
       get {
-        return _controlPanelVM;
+        return _registerProbeVM;
       }
 
       set {
-        _controlPanelVM = value;
-        NotifyOfPropertyChange(() => ControlPanelVM);
+        _registerProbeVM = value;
+        NotifyOfPropertyChange(() => RegisterProbeVM);
+      }
+    }
+
+    public VerifyProbeViewModel VerifyProbeVM {
+      get {
+        return _verifyProbeVM;
+      }
+
+      set {
+        _verifyProbeVM = value;
+        NotifyOfPropertyChange(() => VerifyProbeVM);
+      }
+    }
+
+    public bool VerifyProbeIsEnabled {
+      get {
+        return _verifyProbeIsEnabled;
+      }
+
+      set {
+        _verifyProbeIsEnabled = value;
+        NotifyOfPropertyChange(() => VerifyProbeIsEnabled);
       }
     }
 
@@ -66,21 +93,30 @@ namespace BasteleiApp.ViewModels {
 
     public MainViewModel(string userAdress) {
       WindowTitle = "bastelei";
-      DataPresentationVM = new DataPresentationViewModel();
-      ControlPanelVM = new ControlPanelViewModel(userAdress);
+      AddOptions(userAdress);
     }
 
     #endregion //Constructors
 
     #region Methods
 
-    public void TabSelectionChanged(SelectionChangedEventArgs e) {
-      {
-        var test = e.Source;
-        if (SelectedItem.GetType() == typeof(ControlPanelViewModel)) {
-        }
-        if (SelectedItem.GetType() == typeof(DataPresentationViewModel)) {
-        }
+    private void AddOptions(string userAdress) {      
+      DataPresentationVM = new DataPresentationViewModel();
+      RegisterProbeVM = new RegisterProbeViewModel();
+      VerifyProbeVM = new VerifyProbeViewModel();
+      int priviledge = FetchUserRights(userAdress);
+      if (priviledge == (int)Priviledge.Admin) {
+        VerifyProbeIsEnabled = true;
+      }
+    }
+
+    private int FetchUserRights(string userAdress) {
+      try {
+        var unitOfWork = new UnitOfWork(new bastelei_ws());
+        return unitOfWork.Users.GetUserRights(userAdress);
+      }
+      catch (Exception ex) {
+        throw new SystemException("Couldn't connect to DB", ex);
       }
     }
 

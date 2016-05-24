@@ -23,6 +23,7 @@ namespace BasteleiApp.ViewModels {
     private string _selectedTimeSpan;
     private LocationViewModel _selectedLocation;
     private bool _progessRingIsActive = false;
+    private Task _getDataTask;
 
     #endregion //Fields
 
@@ -169,6 +170,7 @@ namespace BasteleiApp.ViewModels {
         foreach (var name in locNames) {
           Locations.Add(new LocationViewModel(name));
         }
+        unitOfWork.Complete();
       }
       catch (Exception ex) {
         throw new SystemException("Couldn't connect to DB", ex);
@@ -176,6 +178,11 @@ namespace BasteleiApp.ViewModels {
     }
 
     public void RefreshData() {
+      _getDataTask = new Task(RefreshDataTask);
+      _getDataTask.Start();
+    }
+
+    private void RefreshDataTask() {
       ProgessRingIsActive = true;
       ITimespan timespan = new TimespanFactory().GetTimespanObject(SelectedTimeSpan);
       int timeIntervalInMinutes = timespan.CalculateTimespan();
@@ -192,8 +199,6 @@ namespace BasteleiApp.ViewModels {
                                           fromTime, "airpressure", timeIntervalInMinutes)));
       }
       catch (Exception ex) {
-        Exception blub;
-        blub = ex;
       }
       ProgessRingIsActive = false;
     }

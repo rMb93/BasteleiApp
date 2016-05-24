@@ -25,15 +25,21 @@ namespace BasteleiApp.Repositories {
                   where m.time > fromTime && 
                       m.probe_id == probeID &&
                       m.datatype == dataType
-                  select new { m.time, m.value });
-      
+                  select new { m.time, m.value })
+                  .AsEnumerable()
+                  .Select(m => new KeyValuePair<DateTime, double?>(m.time, m.value))
+                  .ToList(); ;
+      return PickDataInIntervals(fromTime, query, interval);
+    }
+
+    private List<KeyValuePair<DateTime, double?>> PickDataInIntervals(DateTime fromTime, List<KeyValuePair<DateTime, double?>> query, int interval) {
       List<KeyValuePair<DateTime, double?>> keyValPairs = new List<KeyValuePair<DateTime, double?>>();
       DateTime tempTime = fromTime;
       foreach (var q in query) {
-        if (q.time >= tempTime) {
-          tempTime = q.time;
-          tempTime = tempTime.Add(TimeSpan.FromMinutes(interval));          
-          keyValPairs.Add(new KeyValuePair<DateTime, double?>(q.time, q.value));
+        if (q.Key >= tempTime) {
+          tempTime = q.Key;
+          tempTime = tempTime.Add(TimeSpan.FromMinutes(interval));
+          keyValPairs.Add(q);
         }
       }
       return keyValPairs;
