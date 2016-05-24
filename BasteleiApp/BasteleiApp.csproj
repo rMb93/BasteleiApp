@@ -264,6 +264,7 @@
       <LastGenOutput>BasteleiORM.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="BasteleiApp_TemporaryKey.pfx" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="Models\BasteleiORM.edmx.diagram">
       <DependentUpon>BasteleiORM.edmx</DependentUpon>
     </None>
