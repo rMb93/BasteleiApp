@@ -8,7 +8,7 @@ namespace Tests {
     [Test]
     public void CheckGettingLocationData() {
       DataPresentationViewModel dataPresentationVM = new DataPresentationViewModel();
-      Assert.That(dataPresentationVM.Locations.Count, Is.EqualTo(3));
+      Assert.That(dataPresentationVM.Locations.Count, Is.EqualTo(5));
     }
   }
 }
