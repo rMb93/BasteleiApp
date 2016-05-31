@@ -31,6 +31,13 @@ namespace BasteleiApp.Repositories {
       };
       BasteleiContext.User.Add(newUser);
     }
+        public int GetUserIDbyMail(string mail)
+        {
+            var query = from u in BasteleiContext.User
+                        where u.mailadress == mail
+                        select u.id;
+            return query.First();
+        }
 
     public string GetPassword(string mail) {
       var query = from u in BasteleiContext.User

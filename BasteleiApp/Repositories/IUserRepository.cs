@@ -15,7 +15,9 @@ namespace BasteleiApp.Repositories {
     string GetName(string mail);
 
     int GetUserRights(string mail);
+    int GetUserIDbyMail(string mail);
 
     bool MailExists(string mail);
+        
   }
 }

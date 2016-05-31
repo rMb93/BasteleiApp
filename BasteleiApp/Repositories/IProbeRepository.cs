@@ -8,6 +8,9 @@ using BasteleiApp.Models;
 namespace BasteleiApp.Repositories {
   public interface IProbeRepository : IRepository<Probe> {
     IEnumerable<string> GetLocationNames();
+    IEnumerable<Probe> GetAllProbes();
     int GetProbeIDByName(string Name);
+    string GenerateProbeToken();
+    void AddProbe(int userId, string locationName);
   }
 }

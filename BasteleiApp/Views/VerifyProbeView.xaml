@@ -7,18 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="500" />
-            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        
+        <DataGrid x:Name="ProbeList" Grid.Row="0">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Binding="{Binding locationname}" Header="Location"/>
+                <DataGridTextColumn Binding="{Binding token}" Header="Token"/>
+                <DataGridTextColumn Binding="{Binding user_id}" Header="User ID"/> -->
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="LoadProbes" Grid.Row="1" Content="Refresh"/>
     </Grid>
 </UserControl>
