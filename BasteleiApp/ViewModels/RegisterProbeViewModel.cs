@@ -145,7 +145,7 @@ namespace BasteleiApp.ViewModels {
                 if (unitOfWork.Users.MailExists(MailAddress))
                 {
                     int uid = unitOfWork.Users.GetUserIDbyMail(MailAddress);
-                    unitOfWork.Probes.AddProbe(uid, LocationName,);
+                    unitOfWork.Probes.AddProbe(uid, LocationName);
                     unitOfWork.Complete();
                     TryClose();
                     Information = "Probe registration successful.";

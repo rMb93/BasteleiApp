@@ -13,6 +13,7 @@ namespace BasteleiApp.ViewModels {
 
         #region Fields
         ObservableCollection<Probe> _probeList = new ObservableCollection<Probe>();
+        Probe _selectedProbe;
     #endregion //Fields
 
     #region Properties
@@ -23,6 +24,15 @@ namespace BasteleiApp.ViewModels {
             {
                 _probeList = value;
                 NotifyOfPropertyChange(() => ProbeList);
+            }
+        }
+        public Probe SelectedProbe
+        {
+            get { return _selectedProbe; }
+            set
+            {
+                _selectedProbe = value;
+                NotifyOfPropertyChange(() => SelectedProbe);
             }
         }
     #endregion //Properties
@@ -42,12 +52,26 @@ namespace BasteleiApp.ViewModels {
         {
             ProbeList.Clear();
             UnitOfWork unitOfWork = new UnitOfWork(new bastelei_ws());
-            var probes = unitOfWork.Probes.GetAllProbes();
+            var probes = unitOfWork.Probes.GetUnverifiedProbes();
             foreach (Probe item in probes)
             {
                 ProbeList.Add(item);
             }
             unitOfWork.Complete();
+        }
+        public void Verify()
+        {
+            UnitOfWork unitOfWork = new UnitOfWork(new bastelei_ws());
+            if(!(SelectedProbe == null))
+            {
+                unitOfWork.Probes.VerifyProbeByID(SelectedProbe);
+                unitOfWork.Complete();
+                //TODO Information Text
+            }
+            else
+            {
+                //Todo Information nicht erfolgreich
+            }
         }
     #endregion //Methods
 

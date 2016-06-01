@@ -39,10 +39,19 @@ namespace BasteleiApp.Repositories {
 
       return probeIDs.First();
     }
-        public IEnumerable<Probe> GetAllProbes()
+        public IEnumerable<Probe> GetUnverifiedProbes()
         {
-            return from probes in BasteleiContext.Probe
-                   select probes;
+            IEnumerable<Probe> unvProbes = from probes in BasteleiContext.Probe
+                                           where probes.verified == false
+                                           select probes;
+            return unvProbes;
+        }
+    public void VerifyProbeByID(Probe paramProbe)
+        {
+            Probe result = (from probes in BasteleiContext.Probe
+                                       where probes.id == paramProbe.id
+                                       select probes).SingleOrDefault();
+            result.verified = true;
         }
     private bool IsProbeTokenAssigned(string checkToken)
         {
@@ -75,7 +84,7 @@ namespace BasteleiApp.Repositories {
                 token = GenerateProbeToken(),
                 locationname = plocationName,
                 user_id = puserId,
-                
+                verified = false,
                 
             };
             BasteleiContext.Probe.Add(newProbe);
