@@ -24,6 +24,9 @@ namespace BasteleiApp.Models
         public int user_id { get; set; }
         public string token { get; set; }
         public string locationname { get; set; }
+        public string location { get; set; }
+        public bool verified { get; set; }
+        public string comment { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Measurement> Measurement { get; set; }

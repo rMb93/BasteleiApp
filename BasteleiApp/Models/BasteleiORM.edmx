@@ -23,6 +23,9 @@
           <Property Name="user_id" Type="int" Nullable="false" />
           <Property Name="token" Type="varchar" MaxLength="62" Nullable="false" />
           <Property Name="locationname" Type="varchar" MaxLength="55" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="verified" Type="bool" Nullable="false" />
+          <Property Name="comment" Type="varchar" MaxLength="512" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -96,6 +99,9 @@
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="token" Type="String" MaxLength="62" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="locationname" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="verified" Type="Boolean" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Measurement" Relationship="Self.probes" FromRole="Probe" ToRole="Measurement" />
           <NavigationProperty Name="User" Relationship="Self.Probe_ibfk_1" FromRole="Probe" ToRole="User" />
         </EntityType>
@@ -172,6 +178,9 @@
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="token" ColumnName="token" />
                 <ScalarProperty Name="locationname" ColumnName="locationname" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="verified" ColumnName="verified" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
