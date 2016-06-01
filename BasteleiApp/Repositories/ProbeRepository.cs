@@ -74,7 +74,9 @@ namespace BasteleiApp.Repositories {
             {
                 token = GenerateProbeToken(),
                 locationname = plocationName,
-                user_id = puserId
+                user_id = puserId,
+                
+                
             };
             BasteleiContext.Probe.Add(newProbe);
         }
