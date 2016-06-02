@@ -13,21 +13,21 @@ namespace BasteleiApp.ViewModels {
 
     #region Fields
 
-    ObservableCollection<Tuple<string, string>> _probeList = new ObservableCollection<Tuple<string, string>>();
-    Tuple<string, string> _selectedProbe;
+    ObservableCollection<UnverifiedProbe> _probeList = new ObservableCollection<UnverifiedProbe>();
+    UnverifiedProbe _selectedProbe;
 
     #endregion //Fields
 
     #region Properties
 
-    public ObservableCollection<Tuple<string, string>> ProbeList {
+    public ObservableCollection<UnverifiedProbe> ProbeList {
       get { return _probeList; }
       set {
         _probeList = value;
         NotifyOfPropertyChange(() => ProbeList);
       }
     }
-    public Tuple<string, string> SelectedProbe {
+    public UnverifiedProbe SelectedProbe {
       get { return _selectedProbe; }
       set {
         _selectedProbe = value;
@@ -53,7 +53,7 @@ namespace BasteleiApp.ViewModels {
         ProbeList.Clear();
         UnitOfWork unitOfWork = new UnitOfWork(new bastelei_ws());
         var probes = unitOfWork.Probes.GetUnverifiedProbes();
-        foreach (Tuple<string, string> item in probes) {
+        foreach (UnverifiedProbe item in probes) {
           ProbeList.Add(item);
         }
         unitOfWork.Complete();
@@ -66,7 +66,7 @@ namespace BasteleiApp.ViewModels {
     public void Verify() {
       UnitOfWork unitOfWork = new UnitOfWork(new bastelei_ws());
       if (SelectedProbe != null) {
-        unitOfWork.Probes.VerifyProbeByLocation(SelectedProbe.Item2);
+        unitOfWork.Probes.VerifyProbeByLocation(SelectedProbe.LocationName);
         unitOfWork.Complete();
         //TODO Information Text
       }

@@ -46,12 +46,16 @@ namespace BasteleiApp.Repositories {
       return probeIDs.First();
     }
 
-    public IEnumerable<Tuple<string, string>> GetUnverifiedProbes() {
-      IEnumerable<Tuple<string, string>> unverified = BasteleiContext.Probe
+    public IEnumerable<UnverifiedProbe> GetUnverifiedProbes() {
+      IEnumerable<UnverifiedProbe> unverified = BasteleiContext.Probe
                                                 .Where(probe => probe.verified == false)
-                                                .Select(probe => new { probe.User.mailadress, probe.locationname })
-                                                .AsEnumerable()
-                                                .Select(probe => new Tuple<string, string>(probe.mailadress, probe.locationname));
+                                                .Select(probe => new UnverifiedProbe {
+                                                  Mail = probe.User.mailadress,
+                                                  Name = probe.User.name,
+                                                  Surname = probe.User.surname,
+                                                  Comment = probe.comment,
+                                                  LocationName = probe.locationname
+                                                });
       return unverified;
     }
 
