@@ -7,6 +7,7 @@ using Caliburn.Micro;
 using BasteleiApp.Repositories;
 using BasteleiApp.Models;
 using System.ComponentModel.Composition;
+using System.Windows.Input;
 
 namespace BasteleiApp.ViewModels {
   [Export(typeof(MainViewModel))]
@@ -83,6 +84,13 @@ namespace BasteleiApp.ViewModels {
       }
       catch (Exception ex) {
         Information = "Wrong mail adress or password or no connection to database.";
+      }
+    }
+    public void LoginEnter(ActionExecutionContext context) {
+      var keyArgs = context.EventArgs as KeyEventArgs;
+
+      if (keyArgs != null && keyArgs.Key == Key.Enter) {
+        Login();
       }
     }
 
