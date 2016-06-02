@@ -9,10 +9,8 @@ using System.Data.Entity;
 namespace BasteleiApp.Repositories {
   public class UserRepository : Repository<User>, IUserRepository {
 
-    public bastelei_ws BasteleiContext
-    {
-      get
-      {
+    public bastelei_ws BasteleiContext {
+      get {
         return Context as bastelei_ws;
       }
     }
@@ -27,17 +25,17 @@ namespace BasteleiApp.Repositories {
         surname = pSurname,
         mailadress = pMail,
         password = pPassword,
-        privilege = 1       
+        privilege = 1
       };
       BasteleiContext.User.Add(newUser);
     }
-        public int GetUserIDbyMail(string mail)
-        {
-            var query = from u in BasteleiContext.User
-                        where u.mailadress == mail
-                        select u.id;
-            return query.First();
-        }
+
+    public int GetUserIDbyMail(string mail) {
+      var query = from u in BasteleiContext.User
+                  where u.mailadress == mail
+                  select u.id;
+      return query.First();
+    }
 
     public string GetPassword(string mail) {
       var query = from u in BasteleiContext.User
@@ -46,13 +44,13 @@ namespace BasteleiApp.Repositories {
       return query.First<string>();
     }
 
-    public string GetName (string mail) {
+    public string GetName(string mail) {
       var query = from u in BasteleiContext.User
                   where u.mailadress == mail
                   select u.name;
       return query.First();
     }
-    
+
     public int GetUserRights(string mail) {
       var query = from u in BasteleiContext.User
                   where u.mailadress == mail
@@ -64,7 +62,7 @@ namespace BasteleiApp.Repositories {
       var query = from u in BasteleiContext.User
                   where u.mailadress == mail
                   select u.mailadress;
-      if(query.Any()) {
+      if (query.Any()) {
         return true;
       }
       return false;

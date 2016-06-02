@@ -19,23 +19,12 @@
             <RowDefinition Height="500" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="Email:" />
-        <TextBox x:Name="MailAddress" Grid.Row="0" Grid.Column="1" AcceptsReturn="True" Margin="0,0,0,10"/>
         <Label Grid.Row="1" Content="Standort: " />
         <TextBox x:Name="LocationName" Grid.Row="1" Grid.Column="1" AcceptsReturn="True" Margin="0,0,0,10"/>
-        <TextBox x:Name="Information" Grid.Row="2" Grid.Column="1" AcceptsReturn="True" Margin="0,0,0,10"/>
-        <!--<m:Map x:Name="ProbeMap" Grid.Row="1" Grid.Column="1" 
-               CredentialsProvider="JeX7JUW6AsfUpSNHWWNS~fyk1gvyoiVc8YKwU5vUx4Q~AsUw38jLjpvt4xX-sXuXu7fgNkL2S1QtykJj1GXNl3exZLlxY6BcCbTkmXmevcg3"
-               Center="49.001235, 8.404393" MouseDoubleClick="PlacePushpin" ZoomLevel="14">
-            <m:Map.Children>
-                <m:MapLayer x:Name="ProbeMapLayer">
-                    <m:Pushpin x:Name="Pushpin" Location="{Binding Location, Mode=TwoWay}" m:MapLayer.Position="{Binding Path=regvm.Location, Mode=OneWay}">
-                    </m:Pushpin>
-                </m:MapLayer>
-            </m:Map.Children>
-        </m:Map> -->
         <WrapPanel Grid.Row="3" Grid.Column="1">
             <Button x:Name="Submit" Content="Submit"/>
+            <Label x:Name="Information" Content="{Binding Information}"/>
+
         </WrapPanel>        
     </Grid>
 </UserControl>

@@ -22,9 +22,9 @@ namespace BasteleiApp.ViewModels {
         int _zip;
         string _city;
     */ //Possible Extension to add more specific location information, would need modification in Database-Model
-        string _locationName;
-        string _mailAddress;
-        string _information;
+    string _locationName;
+    string _mailAddress;
+    string _information;
 
     #endregion //Fields
 
@@ -86,44 +86,31 @@ namespace BasteleiApp.ViewModels {
             }
         }
         */
-        public string LocationName
-        {
-            get { return _locationName; }
-            set
-            {
-                _locationName = value;
-                NotifyOfPropertyChange(() => LocationName);
-            }
-        }
-        public string MailAddress
-        {
-            get { return _mailAddress; }
-            set
-            {
-                _mailAddress = value;
-                NotifyOfPropertyChange(() => MailAddress);
-            }
-        }
-        public string Information
-        {
-            get
-            {
-                return _information;
-            }
+    public string LocationName {
+      get { return _locationName; }
+      set {
+        _locationName = value;
+        NotifyOfPropertyChange(() => LocationName);
+      }
+    }
+    public string Information {
+      get {
+        return _information;
+      }
 
-            set
-            {
-                _information = value;
-                NotifyOfPropertyChange(() => Information);
-            }
-        }
+      set {
+        _information = value;
+        NotifyOfPropertyChange(() => Information);
+      }
+    }
 
-        #endregion //Properties
+    #endregion //Properties
 
-        #region Constructors
+    #region Constructors
 
-        public RegisterProbeViewModel() {
+    public RegisterProbeViewModel(string mailAdress) {
       DisplayName = "Register Probe";
+      _mailAddress = mailAdress;
       //Location = new Location();
     }
 
@@ -132,36 +119,30 @@ namespace BasteleiApp.ViewModels {
     #region Methods
 
     public void Submit() {
-      if(LocationName != null)
-            {
-                RegisterProbe();
-            }
+      if (LocationName != null) {
+        RegisterProbe();
+      }
     }
-        private void RegisterProbe()
-        {
-            try
-            {
-                var unitOfWork = new UnitOfWork(new bastelei_ws());
-                if (unitOfWork.Users.MailExists(MailAddress))
-                {
-                    int uid = unitOfWork.Users.GetUserIDbyMail(MailAddress);
-                    unitOfWork.Probes.AddProbe(uid, LocationName);
-                    unitOfWork.Complete();
-                    TryClose();
-                    Information = "Probe registration successful.";
-                }
-                else
-                {
-                    Information = "Mail Address does not exist.";
-                }
-            }
-            catch(Exception ex)
-            {
 
-            }
+    private void RegisterProbe() {
+      try {
+        var unitOfWork = new UnitOfWork(new bastelei_ws());
+        if (unitOfWork.Users.MailExists(_mailAddress)) {
+          int uid = unitOfWork.Users.GetUserIDbyMail(_mailAddress);
+          unitOfWork.Probes.AddProbe(uid, LocationName);
+          unitOfWork.Complete();
+          Information = "Probe registration successful.";
         }
+        else {
+          Information = "Mail Address does not exist.";
+        }
+      }
+      catch (Exception ex) {
 
-        #endregion //Methods
-
+      }
     }
+
+    #endregion //Methods
+
+  }
 }

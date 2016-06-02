@@ -66,7 +66,7 @@ namespace BasteleiApp.ViewModels {
     public void Verify() {
       UnitOfWork unitOfWork = new UnitOfWork(new bastelei_ws());
       if (SelectedProbe != null) {
-        unitOfWork.Probes.VerifyProbeByMail(SelectedProbe.Item2);
+        unitOfWork.Probes.VerifyProbeByLocation(SelectedProbe.Item2);
         unitOfWork.Complete();
         //TODO Information Text
       }

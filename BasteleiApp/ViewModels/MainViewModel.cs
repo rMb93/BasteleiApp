@@ -102,7 +102,7 @@ namespace BasteleiApp.ViewModels {
 
     private void AddOptions(string userAdress) {      
       DataPresentationVM = new DataPresentationViewModel();
-      RegisterProbeVM = new RegisterProbeViewModel();
+      RegisterProbeVM = new RegisterProbeViewModel(userAdress);
       VerifyProbeVM = new VerifyProbeViewModel();
       int priviledge = FetchUserRights(userAdress);
       if (priviledge == (int)Priviledge.Admin) {

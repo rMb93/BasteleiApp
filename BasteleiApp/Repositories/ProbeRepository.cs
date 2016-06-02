@@ -89,7 +89,8 @@ namespace BasteleiApp.Repositories {
         locationname = plocationName,
         user_id = puserId,
         verified = false,
-
+        comment = "blubberfasel",
+        location = "geoData"
       };
       BasteleiContext.Probe.Add(newProbe);
     }
