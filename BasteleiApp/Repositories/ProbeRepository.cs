@@ -83,13 +83,13 @@ namespace BasteleiApp.Repositories {
       return generatedToken;
     }
 
-    public void AddProbe(int puserId, string plocationName) {
+    public void AddProbe(int puserId, string plocationName, string pcomment) {
       Probe newProbe = new Probe {
         token = GenerateProbeToken(),
         locationname = plocationName,
         user_id = puserId,
         verified = false,
-        comment = "blubberfasel",
+        comment = pcomment,
         location = "geoData"
       };
       BasteleiContext.Probe.Add(newProbe);

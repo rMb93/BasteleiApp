@@ -11,7 +11,7 @@ namespace BasteleiApp.Repositories {
     IEnumerable<Tuple<string, string>> GetUnverifiedProbes();
     int GetProbeIDByName(string Name);
     string GenerateProbeToken();
-    void AddProbe(int userId, string locationName);
+    void AddProbe(int userId, string locationName, string comment);
     void VerifyProbeByLocation(string mailadress);
   }
 }

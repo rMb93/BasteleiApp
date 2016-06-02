@@ -25,6 +25,7 @@ namespace BasteleiApp.ViewModels {
     string _locationName;
     string _mailAddress;
     string _information;
+    string _comment;
 
     #endregion //Fields
 
@@ -104,6 +105,17 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
+    public string Comment {
+      get {
+        return _comment;
+      }
+
+      set {
+        _comment = value;
+        NotifyOfPropertyChange(() => Comment);
+      }
+    }
+
     #endregion //Properties
 
     #region Constructors
@@ -129,12 +141,12 @@ namespace BasteleiApp.ViewModels {
         var unitOfWork = new UnitOfWork(new bastelei_ws());
         if (unitOfWork.Users.MailExists(_mailAddress)) {
           int uid = unitOfWork.Users.GetUserIDbyMail(_mailAddress);
-          unitOfWork.Probes.AddProbe(uid, LocationName);
+          unitOfWork.Probes.AddProbe(uid, LocationName, Comment);
           unitOfWork.Complete();
           Information = "Probe registration successful.";
         }
         else {
-          Information = "Mail Address does not exist.";
+          Information = "No Database Connection";
         }
       }
       catch (Exception ex) {
