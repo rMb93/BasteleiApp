@@ -163,8 +163,20 @@ namespace BasteleiApp.ViewModels {
 
     #region Methods
 
+    private bool CanSelectLocation() {
+      if(SelectedTimeSpan != null && SelectedLocation != null) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
     private void GetLocations() {
       try {
+        if(Locations.Count != 0) {
+          Locations.Clear();
+        }
         var unitOfWork = new UnitOfWork(new bastelei_ws());
         var locNames = unitOfWork.Probes.GetLocationNames();
         foreach (var name in locNames) {
@@ -178,8 +190,10 @@ namespace BasteleiApp.ViewModels {
     }
 
     public void RefreshData() {
-      _getDataTask = new Task(RefreshDataTask);
-      _getDataTask.Start();
+      if (CanSelectLocation()) {
+        _getDataTask = new Task(RefreshDataTask);
+        _getDataTask.Start();
+      }
     }
 
     private void RefreshDataTask() {
@@ -200,6 +214,7 @@ namespace BasteleiApp.ViewModels {
       }
       catch (Exception ex) {
       }
+      GetLocations();
       ProgessRingIsActive = false;
     }
 
