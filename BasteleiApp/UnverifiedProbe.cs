@@ -14,6 +14,7 @@ namespace BasteleiApp {
     private string _surname;
     private string _comment;
     private string _locationName;
+    private string _token;
 
     #endregion //Fields
 
@@ -66,6 +67,16 @@ namespace BasteleiApp {
 
       set {
         _locationName = value;
+      }
+    }
+
+    public string Token {
+      get {
+        return _token;
+      }
+
+      set {
+        _token = value;
       }
     }
 

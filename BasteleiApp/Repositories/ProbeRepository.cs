@@ -54,7 +54,8 @@ namespace BasteleiApp.Repositories {
                                                   Name = probe.User.name,
                                                   Surname = probe.User.surname,
                                                   Comment = probe.comment,
-                                                  LocationName = probe.locationname
+                                                  LocationName = probe.locationname,
+                                                  Token = probe.token
                                                 });
       return unverified;
     }
