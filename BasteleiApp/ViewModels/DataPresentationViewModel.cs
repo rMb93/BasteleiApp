@@ -139,6 +139,16 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
+    public Task GetDataTask {
+      get {
+        return _getDataTask;
+      }
+
+      set {
+        _getDataTask = value;
+      }
+    }
+
     #endregion //Properties
 
     #region Constructors
