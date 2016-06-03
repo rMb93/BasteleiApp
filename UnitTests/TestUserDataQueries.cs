@@ -24,7 +24,6 @@ namespace BasteleiApp.Test {
 
     [Test]
     public void CheckGetUserName() {
-
       var unitOfWork = new UnitOfWork(new bastelei_ws());
       string name = unitOfWork.Users.GetName(_mail);
 
@@ -33,7 +32,6 @@ namespace BasteleiApp.Test {
 
     [Test]
     public void CheckGetPassword() {
-
       var unitOfWork = new UnitOfWork(new bastelei_ws());
       string psw = unitOfWork.Users.GetPassword(_mail);
 
