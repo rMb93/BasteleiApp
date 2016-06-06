@@ -13,5 +13,7 @@ namespace BasteleiApp.Repositories {
     string GenerateProbeToken();
     void AddProbe(int userId, string locationName, string comment);
     void VerifyProbeByLocation(string mailadress);
+    void UnverifyProbeByLocation(string mailadress);
+    void ChangeLocationNames(string userAdress, string newLocationName);
   }
 }

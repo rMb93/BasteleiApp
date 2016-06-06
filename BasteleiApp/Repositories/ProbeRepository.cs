@@ -67,6 +67,13 @@ namespace BasteleiApp.Repositories {
       result.verified = true;
     }
 
+    public void UnverifyProbeByLocation(string locationName) {
+      Probe result = (from probes in BasteleiContext.Probe
+                      where probes.locationname == locationName
+                      select probes).SingleOrDefault();
+      result.verified = false;
+    }
+
     private bool IsProbeTokenAssigned(string checkToken) {
       IEnumerable<string> probeTokens = from probes in BasteleiContext.Probe
                                         where probes.token == checkToken
@@ -98,6 +105,13 @@ namespace BasteleiApp.Repositories {
         location = "geoData"
       };
       BasteleiContext.Probe.Add(newProbe);
+    }
+
+    public void ChangeLocationNames(string locationName, string newLocationName) {
+      Probe probe = (from probes in BasteleiContext.Probe
+                   where probes.locationname == locationName
+                   select probes).SingleOrDefault();
+      probe.locationname = newLocationName;
     }
   }
 

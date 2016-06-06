@@ -12,6 +12,7 @@ namespace BasteleiApp.ViewModels {
 
     private DataPresentationViewModel _dataPresentationVM;
     private RegisterProbeViewModel _registerProbeVM;
+    private ChangeLocationViewModel _changeLocationVM;
     private VerifyProbeViewModel _verifyProbeVM;
     private bool _verifyProbeIsEnabled;
     private object _selectedItem;
@@ -87,6 +88,17 @@ namespace BasteleiApp.ViewModels {
       }
     }
 
+    public ChangeLocationViewModel ChangeLocationVM {
+      get {
+        return _changeLocationVM;
+      }
+
+      set {
+        _changeLocationVM = value;
+        NotifyOfPropertyChange(() => ChangeLocationVM);
+      }
+    }
+
     #endregion //Properties
 
     #region Constructors
@@ -103,6 +115,7 @@ namespace BasteleiApp.ViewModels {
     private void AddOptions(string userAdress) {      
       DataPresentationVM = new DataPresentationViewModel();
       RegisterProbeVM = new RegisterProbeViewModel(userAdress);
+      ChangeLocationVM = new ChangeLocationViewModel(userAdress);
       VerifyProbeVM = new VerifyProbeViewModel();
       int priviledge = FetchUserRights(userAdress);
       if (priviledge == (int)Priviledge.Admin) {

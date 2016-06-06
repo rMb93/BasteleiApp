@@ -18,6 +18,8 @@ namespace BasteleiApp.Repositories {
     int GetUserIDbyMail(string mail);
 
     bool MailExists(string mail);
-        
+
+    IEnumerable<string> GetUserLocationNames(string userAdress);
+
   }
 }

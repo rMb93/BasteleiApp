@@ -21,6 +21,9 @@
         <TabItem Header="Register Probe">
             <ContentControl x:Name="RegisterProbeVM"/>
         </TabItem>
+        <TabItem Header="Change Location">
+            <ContentControl x:Name="ChangeLocationVM"/>
+        </TabItem>
         <TabItem Header="Verify Probe" IsEnabled="{Binding VerifyProbeIsEnabled}">
             <ContentControl x:Name="VerifyProbeVM"/>
         </TabItem>

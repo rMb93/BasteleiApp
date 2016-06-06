@@ -68,5 +68,14 @@ namespace BasteleiApp.Repositories {
       return false;
     }
 
+    public IEnumerable<string> GetUserLocationNames(string userAdress) {
+      return BasteleiContext.Probe
+             .Where(probe => probe.User.mailadress == userAdress)
+             .Select(probe => probe.locationname);
+    }
+
+    public void ChangeUserProbeLocations(string userAdress, string newLocationName) {
+      throw new NotImplementedException();
+    }
   }
 }
